@@ -12,6 +12,8 @@ class Kezdolap extends CI_Controller {
 
     public function index()
     {
+        $this->load->view('header');
+        $this->load->view('fooldal');
         $this->load->view('footer');
     }
 
