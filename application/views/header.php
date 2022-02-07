@@ -19,5 +19,29 @@
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/a356d36430.js" crossorigin="anonymous"></script>
+
+    <!-- Saját stíluslap -->
+    <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
+
 </head>
 <body>
+    <div class="container">
+        <header>
+            <div class="col"><img src="images/logo.jpg" alt="weboldal logo" style="border-radius: 10px;"></div>
+        </header>
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="fooldal">
+                        <a class="nav-link" href="<?php echo base_url(); ?>">Főoldal</a>
+                    </li>
+                    <li class="nav-item" id="bejelentkezes">
+                        <a class="nav-link" href="<?php echo base_url(); ?>bejelentkezes">Bejelentkezés</a>
+                    </li>
+                    <li class="nav-item" id="regisztracio">
+                        <a class="nav-link" href="<?php echo base_url(); ?>regisztracio">Regisztráció</a>
+                    </li>
+                </ul>
+        </nav>
