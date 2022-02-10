@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         <header>
-            <div class="col"><img src="images/logo.jpg" alt="weboldal logo" style="border-radius: 10px;"></div>
+            <div class="col"><img src="<?php echo base_url(); ?>images/logo.jpg" alt="weboldal logo" style="border-radius: 10px;"></div>
         </header>
         <nav class="navbar navbar-expand-sm bg-light navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="<?php echo base_url(); ?>bejelentkezes">Bejelentkezés</a>
                     </li>
                     <li class="nav-item" id="regisztracio">
-                        <a class="nav-link" href="<?php echo base_url(); ?>regisztracio">Regisztráció</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/regisztracio">Regisztráció</a>
                     </li>
                 </ul>
         </nav>
