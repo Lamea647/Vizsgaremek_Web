@@ -22,10 +22,15 @@ class Kezdolap extends CI_Controller {
         $telepules = $this->regisztracio_model->telepules_lista();
         //print_r($telepules);
         $data['telepules'] = $telepules;
+
+        //$szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
+        $szam = $this->regisztracio_model->telepulesekSzama();
+        $data['szam'] = $szam;
         
         $this->load->view('header');
         $this->load->view('regisztracio', $data);
         $this->load->view('footer');
+
     }
 
     public function bejelentkezes(){
