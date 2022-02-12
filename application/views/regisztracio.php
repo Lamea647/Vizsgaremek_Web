@@ -56,5 +56,5 @@
                 <label class="form-check-label" for="input_feltetelek">Felhasználói feltételek és Adatvédelmi irányelvek elfogadása.</label>
             </div>
       </div>
-    <button type="submit" class="btn btn-warning" name="regisztral" value="true">Regisztráció</button>
+    <button type="submit" class="btn btn-warning" name="regisztracio" value="true">Regisztráció</button>
 </form><br>
