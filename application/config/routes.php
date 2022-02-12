@@ -55,3 +55,4 @@ $route['translate_uri_dashes'] = FALSE;
 //$route['fooldal/regisztracio'] = 'regisztracio'; //teszteléshez
 //$route['fooldal/proba'] = 'kezdolap/regisztracio'; //teszteléshez
 $route['hirdetes'] = 'hirdetes_feladas/hirdetes_feladas'; //teszteléshez
+$route['hirdeteskereses'] = 'hirdetes_kereses/hirdetes_kereses'; //teszteléshez
