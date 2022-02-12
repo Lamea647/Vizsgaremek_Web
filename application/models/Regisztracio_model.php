@@ -16,6 +16,13 @@ public function telepules_lista()
     return $result = $query->result_array();
 }
 
+//település tábla rekordjainak megszámlása és az eredmény lekérdezése
+public function telepulesekSzama(){
+
+    return $this->db->count_all('telepules');
+
+}
+
 }
 
 /* End of file Regisztracio_model.php */
