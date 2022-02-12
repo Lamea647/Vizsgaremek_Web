@@ -52,5 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'kezdolap';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['fooldal/regisztracio'] = 'regisztracio';
-//$route['fooldal/proba'] = 'kezdolap/regisztracio';
+//$route['fooldal/regisztracio'] = 'regisztracio'; //teszteléshez
+//$route['fooldal/proba'] = 'kezdolap/regisztracio'; //teszteléshez
+$route['hirdetes'] = 'hirdetes_feladas/hirdetes_feladas'; //teszteléshez
