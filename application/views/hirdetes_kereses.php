@@ -32,7 +32,7 @@
 </div> 
 <div class="row">
   <div class="col-sm-4">
-  <img class="mx-auto d-block" src="<?php echo base_url(); ?>images/kategoria_id_1.jpg" alt="kutyasetaltatas">
+  <img class="mx-auto d-block" src="<?php echo base_url(); ?>images/kategoria_id_3.jpg" alt="takaritas">
   </div>
   <div class="col-sm-4">
       <?php echo "Ez egy szövegrészlet a hirdetés feladásakor kötelezően kitöltött, a hirdetést ismertető leírásból."?>
