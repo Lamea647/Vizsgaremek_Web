@@ -38,7 +38,7 @@
                         <a class="nav-link" href="<?php echo base_url(); ?>">Főoldal</a>
                     </li>
                     <li class="nav-item" id="bejelentkezes">
-                        <a class="nav-link" href="<?php echo base_url(); ?>bejelentkezes">Bejelentkezés</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/bejelentkezes">Bejelentkezés</a>
                     </li>
                     <li class="nav-item" id="regisztracio">
                         <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/regisztracio">Regisztráció</a>
