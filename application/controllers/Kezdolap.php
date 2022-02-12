@@ -28,6 +28,12 @@ class Kezdolap extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function bejelentkezes(){
+        $this->load->view('header');
+        $this->load->view('bejelentkezes');
+        $this->load->view('footer');
+    }
+
 }
 
 
