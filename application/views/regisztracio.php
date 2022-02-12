@@ -22,7 +22,7 @@
       <div class="form-group">
             <label for="telepules_id">Település</label>
             <select class="form-control" id="telepules_id" name="telepules_id" required>
-            <?php for ($x = 0; $x < 3180; $x++) {?>
+            <?php for ($x = 0; $x < $szam; $x++) {?>
             <option value="<?php echo $x+1; ?>"><?php echo $telepules[$x]['telepules']; ?></option> <?php } ?>
             </select> 
       </div>
