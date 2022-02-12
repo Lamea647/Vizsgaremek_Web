@@ -25,6 +25,13 @@ class Hirdetes_kereses extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function hirdetes_megtekintes(){
+        $this->load->view('header');
+        $this->load->view('hirdetes');
+        $this->load->view('footer');
+    }
+
+
 }
 
 /* End of file Hirdetes_kereses.php */
