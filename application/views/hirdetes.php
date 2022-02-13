@@ -11,6 +11,7 @@
             <tr>
                 <td>Település:</td>
                 <td>Szentendre</td>
+            </tr>
             <tr>
                 <td>Cím:</td>
                 <td>2001, Kossuth Lajos utca 7. I./12.</td>
