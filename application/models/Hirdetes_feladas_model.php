@@ -17,8 +17,12 @@ class Hirdetes_feladas_model extends CI_Model {
     return $result = $query->result_array();
 }
 
+//kategória tábla rekordjainak megszámlása és az eredmény lekérdezése
+public function kategoriakSzama(){
 
-    
+    return $this->db->count_all('kategoria');
+
+}
 
 }
 
