@@ -10,7 +10,7 @@
         </div> 
         <div class="form-group col-md-6">
             <p>Kategória:</p>
-            <?php for ($x = 0; $x < 12; $x++) {?>
+            <?php for ($x = 0; $x < $szam_kategoria; $x++) {?>
             <input type="radio" name="kategoria_id" id="kategoria_id" value="<?php echo $x+1; ?>">
             <label for="kategoria_id"><?php echo $kategoria_nev[$x]['kategoria_nev']; ?></label><br><?php } ?>
         </div>
