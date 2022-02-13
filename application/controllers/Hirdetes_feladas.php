@@ -15,7 +15,11 @@ class Hirdetes_feladas extends CI_Controller {
         $kategoria_nev = $this->hirdetes_feladas_model->kategoria_lista();
         //print_r($kategoria_nev);
         $data['kategoria_nev'] = $kategoria_nev;
-        
+
+        //$szam_kategoria változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
+        $szam_kategoria = $this->hirdetes_feladas_model->kategoriakSzama();
+        $data['szam_kategoria'] = $szam_kategoria;
+
         $this->load->view('header');
         $this->load->view('hirdetes_feladas', $data);
         $this->load->view('footer');
