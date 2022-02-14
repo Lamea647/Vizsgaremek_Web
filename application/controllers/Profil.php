@@ -17,6 +17,12 @@ class Profil extends CI_Controller {
         $this->load->view('footer');
     }
 
+    public function profil_modositas(){
+        $this->load->view('header');
+        $this->load->view('modositott_profil');
+        $this->load->view('footer');
+    }
+
 }
 
 /* End of file Profil.php */
