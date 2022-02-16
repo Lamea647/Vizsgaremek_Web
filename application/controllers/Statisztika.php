@@ -13,7 +13,7 @@ class Statisztika extends CI_Controller {
 
     public function ranglista_megtekintes(){
 
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'ranglista']);
         $this->load->view('statisztika');
         $this->load->view('footer');
     }

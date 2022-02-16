@@ -12,7 +12,7 @@ class Profil extends CI_Controller {
 
     public function profil_megtekintes(){
 
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'profil']);
         $this->load->view('profil');
         $this->load->view('footer');
     }

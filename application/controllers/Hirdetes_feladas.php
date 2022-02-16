@@ -20,7 +20,7 @@ class Hirdetes_feladas extends CI_Controller {
         $szam_kategoria = $this->hirdetes_feladas_model->kategoriakSzama();
         $data['szam_kategoria'] = $szam_kategoria;
 
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'hirdetes_feladasa']);
         $this->load->view('hirdetes_feladas', $data);
         $this->load->view('footer');
     }

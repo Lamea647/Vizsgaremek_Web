@@ -20,7 +20,7 @@ class Hirdetes_kereses extends CI_Controller {
         $telepules = $this->regisztracio_model->telepules_lista();
         $data['telepules'] = $telepules;
 
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'hirdetesek_keresese']);
         $this->load->view('hirdetes_kereses', $data);
         $this->load->view('footer');
     }

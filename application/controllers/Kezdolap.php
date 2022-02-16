@@ -13,7 +13,7 @@ class Kezdolap extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'fooldal']);
         $this->load->view('kezdolap');
         $this->load->view('footer');
     }
@@ -27,14 +27,14 @@ class Kezdolap extends CI_Controller {
         $szam = $this->regisztracio_model->telepulesekSzama();
         $data['szam'] = $szam;
         
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'regisztracio']);
         $this->load->view('regisztracio', $data);
         $this->load->view('footer');
 
     }
 
     public function bejelentkezes(){
-        $this->load->view('header');
+        $this->load->view('header', ['oldal' => 'bejelentkezes']);
         $this->load->view('bejelentkezes');
         $this->load->view('footer');
     }
