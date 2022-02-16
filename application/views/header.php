@@ -24,6 +24,15 @@
     <!-- Saját stíluslap -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
 
+    <!-- Menürendszer kiválasztott menüpontjához active class hozzáadása-->
+    <?php if(isset($oldal)) : ?>
+        <script>
+            $(function () {
+                $('#<?php echo $oldal ?>').addClass('active');
+            });
+        </script>
+    <?php endif; ?>
+
 </head>
 
 <body>
@@ -43,16 +52,16 @@
                     <? //php if () : 
                     ?>
                     <li class="nav-item" id="hirdetesek_keresese">
-                        <a class="nav-link" href="">Hirdetések keresése</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_kereses/hirdetes_kereses">Hirdetések keresése</a>
                     </li>
                     <li class="nav-item" id="hirdetes_feladasa">
-                        <a class="nav-link" href="">Hirdetés feladása</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_feladas/hirdetes_feladas">Hirdetés feladása</a>
                     </li>
                     <li class="nav-item" id="profil">
-                        <a class="nav-link" href="">Profil</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>profil/profil_megtekintes">Profil</a>
                     </li>
                     <li class="nav-item" id="ranglista">
-                        <a class="nav-link" href="">Ranglista</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>statisztika/ranglista_megtekintes">Ranglista</a>
                     </li>
                     <? //php else : 
                     ?>
