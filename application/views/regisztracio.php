@@ -1,23 +1,23 @@
-<form method="post" enctype="multipart/form-data">
+<form action="<?php echo base_url(); ?>regisztracio" method="post" enctype="multipart/form-data">
       <div class="form-group">
             <label for="nev">Teljes név:</label>
-            <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required value="<?php echo isset($nev)?$nev:""; ?>">
+            <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['nev']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="felhnev">Felhasználónév:</label>
-            <input type="text" class="form-control" id="felhnev" name="felhnev" maxlength="100" required value="<?php echo isset($felhnev)?$felhnev:""; ?>">
+            <input type="text" class="form-control" id="felhnev" name="felhnev" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['felhnev']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="szuldatum">Születési dátum:</label>
-            <input type="date" class="form-control" id="szuldatum" name="szuldatum" required value="<?php echo isset($szuldatum)?$szuldatum:""; ?>">
+            <input type="date" class="form-control" id="szuldatum" name="szuldatum" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['szuldatum']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="telszam">Telefonszám:</label>
-            <input type="tel" class="form-control" id="telszam" name="telszam" required value="<?php echo isset($telszam)?$telszam:""; ?>">
+            <input type="tel" class="form-control" id="telszam" name="telszam" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['telszam']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="email">E-mail cím:</label>
-            <input type="email" class="form-control" id="email" name="email" maxlength="100" required value="<?php echo isset($email)?$email:""; ?>">
+            <input type="email" class="form-control" id="email" name="email" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['email']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="telepules_id">Település:</label>
@@ -28,11 +28,11 @@
       </div>
       <div class="form-group">
             <label for="cim">Cím:</label>
-            <input type="text" class="form-control" id="cim" name="cim" maxlength="100" required placeholder="irányítószám, utca, házszám, emelet, ajtó"value="<?php echo isset($cim)?$cim:""; ?>">
+            <input type="text" class="form-control" id="cim" name="cim" maxlength="100" placeholder="Irányítószám, utca, házszám, emelet, ajtó" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['cim']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="okmanyszam">Feltöltött okmány száma:</label>
-            <input type="text" class="form-control" id="okmanyszam" name="okmanyszam" maxlength="100" required value="<?php echo isset($okmanyszam)?$okmanyszam:""; ?>">
+            <input type="text" class="form-control" id="okmanyszam" name="okmanyszam" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['okmanyszam']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
         <label for="okmanykep">Okmánykép feltöltése:</label>
@@ -44,11 +44,11 @@
       </div>
       <div class="form-group">
             <label for="jelszo">Jelszó:</label>
-            <input type="password" class="form-control" id="jelszo" name="jelszo" maxlength="100" required>
+            <input type="password" class="form-control" id="jelszo" name="jelszo" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszo']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <label for="jelszoujra">Jelszó megerősítése:</label>
-            <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" required>
+            <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszoujra']) ?>" <?php endif; ?>>
       </div>
       <div class="form-group">
             <div class="form-check">
