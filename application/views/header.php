@@ -25,9 +25,9 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>public/css/style.css">
 
     <!-- Menürendszer kiválasztott menüpontjához active class hozzáadása-->
-    <?php if(isset($oldal)) : ?>
+    <?php if (isset($oldal)) : ?>
         <script>
-            $(function () {
+            $(function() {
                 $('#<?php echo $oldal ?>').addClass('active');
             });
         </script>
@@ -49,8 +49,7 @@
                     <li class="nav-item" id="fooldal">
                         <a class="nav-link" href="<?php echo base_url(); ?>">Főoldal</a>
                     </li>
-                    <? //php if () : 
-                    ?>
+                    <?php if ($this->session->userdata('user') !== NULL): ?>
                     <li class="nav-item" id="hirdetesek_keresese">
                         <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_kereses/hirdetes_kereses">Hirdetések keresése</a>
                     </li>
@@ -63,18 +62,17 @@
                     <li class="nav-item" id="ranglista">
                         <a class="nav-link" href="<?php echo base_url(); ?>statisztika/ranglista_megtekintes">Ranglista</a>
                     </li>
-                    <? //php else : 
+                    <?php else : 
                     ?>
-                    <? //php endif; 
+                    <?php endif; 
                     ?>
                 </ul>
                 <ul class="navbar-nav">
-                    <? //php if () : 
-                    ?>
+                    <?php if ($this->session->userdata('user') !== NULL): ?>
                     <li class="nav-item" id="kijelentkezes">
-                        <a class="nav-link" href="">Kijelentkezés</a>
+                        <a class="nav-link" href="<?php echo base_url(); ?>kijelentkezes">Kijelentkezés</a>
                     </li>
-                    <? //php else : 
+                    <?php else : 
                     ?>
                     <li class="nav-item" id="bejelentkezes">
                         <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/bejelentkezes">Bejelenkezés</a>
@@ -82,7 +80,7 @@
                     <li class="nav-item" id="regisztracio">
                         <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/regisztracio">Regisztráció</a>
                     </li>
-                    <? //php endif; 
+                    <?php endif; 
                     ?>
                 </ul>
             </nav>
