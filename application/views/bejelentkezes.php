@@ -1,5 +1,5 @@
 <div class="col-lg-6 mx-auto" style="margin-top: 5%;">
-<form method="post">
+<form action="<?php echo base_url(); ?>bejelentkezes" method="post">
     <div class="form-group">
         <label for="felhnev">Felhasználónév</label>
         <input type="text" class="form-control" id="felhnev" name="felhnev" required>
