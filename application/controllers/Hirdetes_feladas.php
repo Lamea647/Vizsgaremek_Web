@@ -9,6 +9,7 @@ class Hirdetes_feladas extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('hirdetes_feladas_model');
+        $this->load->library('session');
     }
 
     public function hirdetes_feladas(){

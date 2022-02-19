@@ -10,6 +10,7 @@ class Hirdetes_kereses extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('hirdetes_feladas_model'); //kategória lekérdezés eléréséhez
         $this->load->model('regisztracio_model'); //település lekérdezés eléréséhez
+        $this->load->library('session');
     }
 
     public function hirdetes_kereses(){
