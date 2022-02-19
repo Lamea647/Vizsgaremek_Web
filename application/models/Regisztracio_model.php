@@ -9,19 +9,30 @@ class Regisztracio_model extends CI_Model {
         $this->load->database();
     }
 
-public function telepules_lista()
-{
+    public function telepules_lista()
+    {
     $this->db->select("telepules");
     $query = $this->db->get("telepules");
     return $result = $query->result_array();
-}
+    }
 
 //település tábla rekordjainak megszámlása és az eredmény lekérdezése
-public function telepulesekSzama(){
+    public function telepulesekSzama()
+    {
+        return $this->db->count_all('telepules');
+    }
 
-    return $this->db->count_all('telepules');
+    public function insert($data)
+    {
+        $this->db->insert('user', $data);
+    }
 
-}
+
+    public function kereses_felhnev_alapjan($felhnev)
+    {
+        $this->db->where('felhnev', $felhnev);
+        return $this->db->get('user')->row_array();
+    }
 
 }
 
