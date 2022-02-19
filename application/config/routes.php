@@ -54,6 +54,13 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 //$route['fooldal/regisztracio'] = 'regisztracio'; //teszteléshez
 //$route['fooldal/proba'] = 'kezdolap/regisztracio'; //teszteléshez
-$route['feladas'] = 'hirdetes_feladas/hirdetes_feladas'; //teszteléshez - megjelenítés
-$route['kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //teszteléshez - megjelenítés
-$route['megtekintes'] = 'hirdetes_kereses/hirdetes_megtekintes'; //teszteléshez - megjelenítés
+//$route['feladas'] = 'hirdetes_feladas/hirdetes_feladas'; //teszteléshez - hirdetés feladási felület megtekintése
+//$route['kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //teszteléshez - hirdetés keresőfelület megtekintése
+$route['megtekintes'] = 'hirdetes_kereses/hirdetes_megtekintes'; //teszteléshez - hirdetés adatlap megtekintése
+//$route['profil'] = 'profil/profil_megtekintes'; //teszteléshez - profil oldal megtekintése
+//$route['statisztika'] = 'statisztika/ranglista_megtekintes'; //teszteléshez - ranglista oldal megtekintése
+$route['modprofil'] = 'profil/profil_modositas'; //teszteléshez - módosított profil oldal megtekintése
+$route['regisztracio']['POST'] = 'kezdolap/regisztracio_post';
+$route['bejelentkezes']['POST'] = 'kezdolap/bejelentkezes_post';
+$route['kijelentkezes'] = "kezdolap/kijelentkezes";
+
