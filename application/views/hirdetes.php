@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-sm-4">
-        <img class="img-fluid" src="<?php echo base_url(); ?>images/profilkep_1.jpg" alt="hirdeto_profilkepe">
+        <img class="img-fluid" src="<?php echo base_url(); ?>uploads/tesztelek_profil_2022_03_02_13_30_00.jpg" alt="hirdeto_profilkepe">
     </div>
     <div class="col-sm-8">
         <table style="width:100%">
             <tr>
                 <td>Teljes név:</td>
-                <td>Kiss Anita</td>
+                <td>Teszt Elek</td>
             </tr>
             <tr>
                 <td>Település:</td>
@@ -14,11 +14,11 @@
             </tr>
             <tr>
                 <td>Cím:</td>
-                <td>2001, Kossuth Lajos utca 7. I./12.</td>
+                <td>1111, Teszt utca 5.</td>
             </tr>
             <tr>
                 <td>Telefonszám:</td>
-                <td>06 30 654 34 26</td>
+                <td>06 30 234 12 67</td>
             </tr>
             <tr>
                 <td>Másodlagos telefonszám:</td>
