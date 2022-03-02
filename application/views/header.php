@@ -49,38 +49,53 @@
                     <li class="nav-item" id="fooldal">
                         <a class="nav-link" href="<?php echo base_url(); ?>">Főoldal</a>
                     </li>
-                    <?php if ($this->session->userdata('user') !== NULL): ?>
-                    <li class="nav-item" id="hirdetesek_keresese">
-                        <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_kereses/hirdetes_kereses">Hirdetések keresése</a>
-                    </li>
-                    <li class="nav-item" id="hirdetes_feladasa">
-                        <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_feladas/hirdetes_feladas">Hirdetés feladása</a>
-                    </li>
-                    <li class="nav-item" id="profil">
-                        <a class="nav-link" href="<?php echo base_url(); ?>profil/profil_megtekintes">Profil</a>
-                    </li>
-                    <li class="nav-item" id="ranglista">
-                        <a class="nav-link" href="<?php echo base_url(); ?>statisztika/ranglista_megtekintes">Ranglista</a>
-                    </li>
-                    <?php else : 
+                    <?php if ($this->session->userdata('user') !== NULL) : ?>
+                        <li class="nav-item" id="hirdetesek_keresese">
+                            <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_kereses/hirdetes_kereses">Hirdetések keresése</a>
+                        </li>
+                        <li class="nav-item" id="hirdetes_feladasa">
+                            <a class="nav-link" href="<?php echo base_url(); ?>hirdetes_feladas/hirdetes_feladas">Hirdetés feladása</a>
+                        </li>
+                        <li class="nav-item" id="profil">
+                            <a class="nav-link" href="<?php echo base_url(); ?>profil/profil_megtekintes">Profil</a>
+                        </li>
+                        <li class="nav-item" id="ranglista">
+                            <a class="nav-link" href="<?php echo base_url(); ?>statisztika/ranglista_megtekintes">Ranglista</a>
+                        </li>
+                    <?php else :
                     ?>
-                    <?php endif; 
+                    <?php endif;
                     ?>
                 </ul>
                 <ul class="navbar-nav">
-                    <?php if ($this->session->userdata('user') !== NULL): ?>
-                    <li class="nav-item" id="kijelentkezes">
-                        <a class="nav-link" href="<?php echo base_url(); ?>kijelentkezes">Kijelentkezés</a>
-                    </li>
-                    <?php else : 
+                    <?php if ($this->session->userdata('user') !== NULL) : ?>
+                        <li class="nav-item" id="kijelentkezes">
+                            <a class="nav-link" href="<?php echo base_url(); ?>kijelentkezes">Kijelentkezés</a>
+                        </li>
+                    <?php else :
                     ?>
-                    <li class="nav-item" id="bejelentkezes">
-                        <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/bejelentkezes">Bejelenkezés</a>
-                    </li>
-                    <li class="nav-item" id="regisztracio">
-                        <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/regisztracio">Regisztráció</a>
-                    </li>
-                    <?php endif; 
+                        <li class="nav-item" id="bejelentkezes">
+                            <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/bejelentkezes">Bejelentkezés</a>
+                        </li>
+                        <li class="nav-item" id="regisztracio">
+                            <a class="nav-link" href="<?php echo base_url(); ?>kezdolap/regisztracio">Regisztráció</a>
+                        </li>
+                    <?php endif;
                     ?>
                 </ul>
             </nav>
+            <div class="container">
+                <?php if ($this->session->userdata('success') !== NULL) : ?>
+                    <div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->userdata('success'); ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($this->session->userdata('error') !== NULL) : ?>
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <?php echo $this->session->userdata('error'); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
