@@ -113,12 +113,13 @@ class Kezdolap extends CI_Controller {
         $config2['max_size']             = 10240;
         $config2['file_name']            = $fajlnev2;
 
-        $this->load->library('upload', $config2);
+        $this->upload->initialize($config2);
+        //$this->load->library('upload', $config2);
         
 		if (!$this->upload->do_upload('profilkep')) {
 			$this->session->set_flashdata('error', $this->upload->display_errors());
 			$this->session->set_flashdata('last_request', $this->input->post());
-			redirect('Kezdolap/regisztracio');
+			redirect('kezdolap/regisztracio');
 		}
 
 		$data = [
@@ -182,14 +183,14 @@ class Kezdolap extends CI_Controller {
         $this->session->set_userdata($array);
 
 
-        $this->session->set_flashdata('success', "Sikeres bejelentkezés");
+        $this->session->set_flashdata('success', "Sikeres bejelentkezés!");
         redirect('kezdolap');
     }
 
 	public function kijelentkezes()
 	{	
 		$this->session->unset_userdata('user');
-        $this->session->set_flashdata('success', "Sikeres kijelentkezés");
+        $this->session->set_flashdata('success', "Sikeres kijelentkezés!");
         redirect('kezdolap');
 	}
 
