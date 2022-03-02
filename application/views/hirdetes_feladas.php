@@ -1,20 +1,21 @@
 <div class="container"><h5 style="font-weight: bold; text-align: center;">Új hirdetés adatai:</h5></div>
-    <div class="container">
-        <div class="form-group col-md-6">
+    <div class="container col-lg-8">
+        <div class="form-group">
             <label for="kezdo_idopont">Kezdő időpont:</label>
             <input type="datetime-local" class="form-control" id="kezdo_idopont" name="kezdo_idopont">
         </div> 
-        <div class="form-group col-md-6">
+        <div class="form-group">
             <label for="zaro_idopont">Záró időpont:</label>
             <input type="datetime-local" class="form-control" id="zaro_idopont" name="zaro_idopont">
         </div> 
-        <div class="form-group col-md-6">
+        <div class="form-group">
             <p>Kategória:</p>
-            <?php for ($x = 0; $x < $szam_kategoria; $x++) {?>
-            <input type="radio" name="kategoria_id" id="kategoria_id" value="<?php echo $x+1; ?>">
-            <label for="kategoria_id"><?php echo $kategoria_nev[$x]['kategoria_nev']; ?></label><br><?php } ?>
+            <select class="form-control" id="kategoria_id" name="kategoria_id">
+            <?php for ($x = 0; $x < 12; $x++) {?>
+            <option value="<?php echo $x+1; ?>"><?php echo $kategoria_nev[$x]['kategoria_nev']; ?></option> <?php } ?>
+            </select> 
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group">
             <label for="leiras">Leírás:</label>
             <textarea class="form-control" id="leiras" name="leiras" rows="5" cols="10"></textarea>
         </div> 
