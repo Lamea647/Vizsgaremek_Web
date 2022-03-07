@@ -38,6 +38,25 @@ class User extends REST_Controller {
         $this->response($data, $response_code);
     }
 
+    public function index_post()
+    {
+        $adatok['nev'] = $this->post('nev');
+        $adatok['felhnev'] = $this->post('felhnev');
+        $adatok['jelszo'] = $this->post('jelszo');
+        $adatok['cim'] = $this->post('cim');
+        $adatok['szuldatum'] = $this->post('szuldatum');
+        $adatok['telszam'] = $this->post('telszam');
+        $adatok['email'] = $this->post('email');
+        $adatok['profilkep'] = $this->post('profilkep');
+        $adatok['okmanykep'] = $this->post('okmanykep');
+        $adatok['okmanyszam'] = $this->post('okmanyszam');
+        $adatok['telepules_id'] = $this->post('telepules_id');
+        $id = $this->user_model->user_rogzitese($adatok);
+        $this->response($adatok, REST_Controller::HTTP_CREATED);
+    }
+
+
+
     
 
     

@@ -22,7 +22,12 @@ class User_model extends CI_Model {
         return $this->db->get('user')->row_array();
     }
 
-    
+    public function user_rogzitese($data)
+    {
+        $this->db->insert('user', $data);
+        //return $this->db->insert_id();
+    }
+
         
 }
 
