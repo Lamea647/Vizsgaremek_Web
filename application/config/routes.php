@@ -63,4 +63,7 @@ $route['modprofil'] = 'profil/profil_modositas'; //teszteléshez - módosított 
 $route['regisztracio']['POST'] = 'kezdolap/regisztracio_post';
 $route['bejelentkezes']['POST'] = 'kezdolap/bejelentkezes_post';
 $route['kijelentkezes'] = "kezdolap/kijelentkezes";
+$route['regisztracio']['GET'] = 'kezdolap/regisztracio';
+$route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
+$route['proba'] = 'kezdolap/proba';
 
