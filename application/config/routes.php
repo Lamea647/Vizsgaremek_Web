@@ -66,4 +66,4 @@ $route['kijelentkezes'] = "kezdolap/kijelentkezes";
 $route['regisztracio']['GET'] = 'kezdolap/regisztracio';
 $route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
 $route['proba'] = 'kezdolap/proba';
-
+$route['proba2'] = 'kezdolap/proba';
