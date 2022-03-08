@@ -55,6 +55,30 @@ class User extends REST_Controller {
         $this->response($adatok, REST_Controller::HTTP_CREATED);
     }
 
+    public function index_put($id)
+    {
+        $user = $this->user_model->user_lekerdezese_id_alapjan($id);
+        $resposone_code = REST_Controller::HTTP_OK;
+        $data = [];
+        if (count($user) == 0) {
+            $resposone_code = REST_Controller::HTTP_NOT_FOUND;
+            $data = ['A megadott azonosítóval nem található felhasználó: '.$id];
+        } else {
+            $adatok['nev'] = $this->put('nev');
+            $adatok['jelszo'] = $this->put('jelszo');
+            $adatok['cim'] = $this->put('cim');
+            $adatok['telszam'] = $this->put('telszam');
+            $adatok['email'] = $this->put('email');
+            $adatok['profilkep'] = $this->put('profilkep');
+            $adatok['okmanykep'] = $this->put('okmanykep');
+            $adatok['okmanyszam'] = $this->put('okmanyszam');
+            $adatok['telepules_id'] = $this->put('telepules_id');
+            $this->user_model->user_modositasa($id, $adatok);
+            $data = $this->user_model->user_lekerdezese_id_alapjan($id)[0];
+        }
+        $this->response($data, $resposone_code);
+    }
+
 
 
     

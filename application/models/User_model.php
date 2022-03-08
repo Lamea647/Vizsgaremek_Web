@@ -28,6 +28,18 @@ class User_model extends CI_Model {
         //return $this->db->insert_id();
     }
 
+    public function user_lekerdezese_id_alapjan($id)
+    {
+        $this->db->where('user_id', $id);
+        return $this->db->get('user')->result_array();
+    }
+
+    public function user_modositasa($id, $data)
+    {
+        $this->db->where('user_id', $id);
+        return $this->db->update('user', $data);
+    }
+
         
 }
 
