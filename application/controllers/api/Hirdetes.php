@@ -38,4 +38,33 @@ class Hirdetes extends REST_Controller {
         $this->response($data, $response_code);
     }
 
+
+    //Post metódus még fejlesztés alatt
+    /*public function index_post()
+    {
+        $adatok['kezdo_idopont'] = $this->post('kezdo_idopont');
+        $adatok['zaro_idopont'] = $this->post('zaro_idopont');
+        $adatok['kategoria_id'] = $this->post('kategoria_id');
+        $adatok['telepules_id'] = $this->post('telepules_id');
+        $adatok['telszam2'] = $this->post('telszam2');
+        $adatok['leiras'] = $this->post('leiras');
+        $this->response($adatok, REST_Controller::HTTP_CREATED);
+    }*/
+
+    public function index_delete($id)
+    {
+        $hirdetes = $this->hirdetes_model->hirdetes_lekerdezese_id_alapjan($id);
+        $resposone_code = REST_Controller::HTTP_OK;
+        $data = [];
+        if (count($hirdetes) == 0) {
+            $resposone_code = REST_Controller::HTTP_NOT_FOUND;
+            $data = ['message' => 'A megadott azonosítóval nem található hirdetés: '.$id, "success" => false];
+        } else {
+            $this->user_model->hirdetes_torlese($id);
+            $data = ['message' => 'Hirdetés sikeresen törölve: '.$id, "success" => true];
+        }
+        $this->response($data, $resposone_code);
+        
+    }
+
 }
