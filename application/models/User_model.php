@@ -40,7 +40,12 @@ class User_model extends CI_Model {
         return $this->db->update('user', $data);
     }
 
-        
+    public function user_torlese($id)
+    {
+        $this->db->where('user_id', $id);
+        $this->db->delete('user');
+    }
+
 }
 
 /* End of file ModelName.php */

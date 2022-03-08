@@ -79,6 +79,22 @@ class User extends REST_Controller {
         $this->response($data, $resposone_code);
     }
 
+    public function index_delete($id)
+    {
+        $user = $this->user_model->user_lekerdezese_id_alapjan($id);
+        $resposone_code = REST_Controller::HTTP_OK;
+        $data = [];
+        if (count($user) == 0) {
+            $resposone_code = REST_Controller::HTTP_NOT_FOUND;
+            $data = ['message' => 'A megadott azonosítóval nem található felhasználó: '.$id, "success" => false];
+        } else {
+            $this->user_model->user_torlese($id);
+            $data = ['message' => 'Felhasználó sikeresen törölve: '.$id, "success" => true];
+        }
+        $this->response($data, $resposone_code);
+        
+    }
+
 
 
     
