@@ -9,18 +9,27 @@ class Profil extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->model('telepules_model');
     }
 
     public function profil_megtekintes(){
 
+        $telepules = $this->telepules_model->get_by_id($_SESSION['user']['telepules_id']);
+        $data['telepules'] = $telepules;
+
         $this->load->view('header', ['oldal' => 'profil']);
-        $this->load->view('profil');
+        $this->load->view('profil', $data);
         $this->load->view('footer');
     }
 
     public function profil_modositas(){
+
+
+        $telepules = $this->telepules_model->get_by_id($_SESSION['user']['telepules_id']);
+        $data['telepules'] = $telepules;
+
         $this->load->view('header');
-        $this->load->view('modositott_profil');
+        $this->load->view('modositott_profil', $data);
         $this->load->view('footer');
     }
 
