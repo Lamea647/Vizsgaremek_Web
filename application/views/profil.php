@@ -1,16 +1,16 @@
 <div class="row">
     <div class="col-sm-4">
-        <img class="img-fluid" src="<?php echo base_url(); ?>uploads/tesztelek_profil_2022_03_02_13_30_00.jpg" alt="felhasznalo_profilkepe">
+        <img class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $_SESSION['user']['profilkep']; ?>" alt="felhasznalo_profilkepe">
     </div>
     <div class="col-sm-8">
         <table style="width:30%">
             <tr>
                 <td>Teljes név:</td>
-                <td>Teszt Elek</td>
+                <td><?php echo $_SESSION['user']['nev']; ?></td>
             </tr>
             <tr>
                 <td>Felhasználónév:</td>
-                <td>tesztelek</td>
+                <td><?php echo $_SESSION['user']['felhnev']; ?></td>
             </tr>
         </table>
     <button class="btn btn-warning">Profil módosítása</button>
@@ -23,26 +23,26 @@
         <table style="width:100%">
             <tr>
                 <td>Telefonszám:</td>
-                <td>Regisztrációkor megadott telefonszám betöltődik</td>
+                <td><?php echo $_SESSION['user']['telszam']; ?></td>
             </tr>
             <tr>
                 <td>E-mail cím:</td>
-                <td>Regisztrációkor megadott e-mail cím betöltődik</td>
+                <td><?php echo $_SESSION['user']['email']; ?></td>
             </tr>
             <tr>
                 <td>Település:</td>
-                <td>Regisztrációkor megadott település betöltődik</td>
+                <td><?php echo $telepules['telepules']; ?></td>
             </tr>
             <tr>
                 <td>Cím:</td>
-                <td>Regisztrációkor megadott cím betöltődik</td>
+                <td><?php echo $_SESSION['user']['cim']; ?></td>
             </tr>
         </table><br>
         <p style="font-weight: bold;">Statisztika:</p>
         <table style="width:25%">
             <tr>
                 <td>Pontszám:</td>
-                <td>3</td>
+                <td><?php echo $_SESSION['user']['pontszam']; ?></td>
             </tr>
         </table>
     </div>
