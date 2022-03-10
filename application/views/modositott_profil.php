@@ -4,20 +4,20 @@
     <div class="form-group">
         <label for="telepules_id">Település:</label>
         <select class="form-control" id="telepules_id" name="telepules_id" required>
-        <option value="telepules_id">Regisztrációkor megadott település betöltődik</option>
+        <option value="telepules_id"><?php echo $telepules['telepules']; ?></option>
         </select> 
     </div>
     <div class="form-group">
             <label for="cim">Cím:</label>
-            <input type="text" class="form-control" id="cim" name="cim" maxlength="100" required value="Regisztrációkor megadott cím betöltődik">
+            <input type="text" class="form-control" id="cim" name="cim" maxlength="100" required value=<?php echo $_SESSION['user']['cim']; ?>>
     </div>
     <div class="form-group">
         <label for="email">E-mail cím:</label>
-        <input type="email" class="form-control" id="email" name="email" maxlength="100" required value="Regisztrációkor megadott e-mail cím betöltődik">
+        <input type="email" class="form-control" id="email" name="email" maxlength="100" required value=<?php echo $_SESSION['user']['email']; ?>>
     </div>
     <div class="form-group">
             <label for="telszam">Telefonszám:</label>
-            <input type="tel" class="form-control" id="telszam" name="telszam" required value="Regisztrációkor megadott telefonszám betöltődik">
+            <input type="tel" class="form-control" id="telszam" name="telszam" required value=<?php echo $_SESSION['user']['telszam']; ?>>
     </div>
     <div class="form-group">
     <label for="profilkep">Új profilkép feltöltése:</label>
@@ -42,7 +42,7 @@
       </div>
       <div class="form-group">
             <label for="nev">Teljes név</label>
-            <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required value="Regisztrációkor megadott teljes név betöltődik">
+            <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required value=<?php echo $_SESSION['user']['nev']; ?>>
       </div>
       <div class="form-group">
             <label for="okmanyszam">Feltöltött új okmány száma:</label>
