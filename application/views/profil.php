@@ -13,7 +13,9 @@
                 <td><?php echo $_SESSION['user']['felhnev']; ?></td>
             </tr>
         </table>
-    <button class="btn btn-warning">Profil módosítása</button>
+    <button class="btn btn-warning">
+    <a href="<?php echo base_url(); ?>profil/profil_modositas">Profil módosítása</a>
+    </button>
     <button class="btn btn-warning">Profil törlése</button>
     </div>
 </div>
