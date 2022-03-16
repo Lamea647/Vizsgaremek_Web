@@ -10,6 +10,7 @@ class Profil extends CI_Controller {
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('telepules_model');
+        $this->load->model('regisztracio_model');
     }
 
     public function profil_megtekintes(){
@@ -24,9 +25,11 @@ class Profil extends CI_Controller {
 
     public function profil_modositas(){
 
-
-        $telepules = $this->telepules_model->get_by_id($_SESSION['user']['telepules_id']);
+        $telepules = $this->telepules_model->get_all();
         $data['telepules'] = $telepules;
+
+        $szam = $this->regisztracio_model->telepulesekSzama();
+        $data['szam'] = $szam;
 
         $this->load->view('header');
         $this->load->view('modositott_profil', $data);
