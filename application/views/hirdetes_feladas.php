@@ -22,20 +22,24 @@
         <div class="form-group">
             <label for="telepules_id">Település:</label>
             <select class="form-control" id="telepules_id" name="telepules_id" required>
-            <option value="telepules_id">Regisztrációkor megadott település betöltése</option>
+            <?php for ($x = 0; $x < $szam; $x++):?>
+                <option value="
+                <?php if($x+1 == $_SESSION['user']['telepules_id']):?>
+                    <?php echo $x+1; ?>" selected>
+                <?php else: echo $x+1; ?>"><?php endif ?><?php echo $telepules[$x]['telepules']; ?><?php endfor ?></option> 
             </select> 
         </div>
         <div class="form-group">
                 <label for="cim">Cím:</label>
-                <input type="text" class="form-control" id="cim" name="cim" maxlength="100" required value="Regisztrációkor megadott cím betöltése">
+                <input type="text" class="form-control" id="cim" name="cim" maxlength="100" required value="<?php echo $_SESSION['user']['cim']; ?>">
         </div>
         <div class="form-group">
                 <label for="telszam">Telefonszám</label>
-                <input type="tel" class="form-control" id="telszam" name="telszam" required value="Regisztrációkor megadott telefonszám betöltése">
+                <input type="tel" class="form-control" id="telszam" name="telszam" required value="<?php echo $_SESSION['user']['telszam']; ?>">
         </div>
         <div class="form-group">
                 <label for="telszam_masik">Másodlagos telefonszám</label>
-                <input type="telszam_masik" class="form-control" id="telszam_masik" name="telszam_masik" required value="Opcionálisan megadható másik telefonszám">
+                <input type="telszam_masik" class="form-control" id="telszam_masik" name="telszam_masik" required placeholder="Opcionálisan megadható másik telefonszám">
         </div>
         <button type="submit" class="btn btn-warning">Hirdetés feladása</button>
     </div><br>
