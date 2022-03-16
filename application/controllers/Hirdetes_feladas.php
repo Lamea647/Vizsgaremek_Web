@@ -9,6 +9,8 @@ class Hirdetes_feladas extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('hirdetes_feladas_model');
+        $this->load->model('telepules_model');
+        $this->load->model('regisztracio_model');
         $this->load->library('session');
     }
 
@@ -20,6 +22,12 @@ class Hirdetes_feladas extends CI_Controller {
         //$szam_kategoria változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
         $szam_kategoria = $this->hirdetes_feladas_model->kategoriakSzama();
         $data['szam_kategoria'] = $szam_kategoria;
+
+        $telepules = $this->telepules_model->get_all();
+        $data['telepules'] = $telepules;
+
+        $szam = $this->regisztracio_model->telepulesekSzama();
+        $data['szam'] = $szam;
 
         $this->load->view('header', ['oldal' => 'hirdetes_feladasa']);
         $this->load->view('hirdetes_feladas', $data);
