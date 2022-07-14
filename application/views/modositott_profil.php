@@ -50,7 +50,7 @@
 <div class="container"><h6 style="font-weight: bold; text-align: center;">Profil módosítása (jóváhagyás szükséges az adatok módosítását követően):</h6></div>
 <div class="container">
       <div class="form-group">
-            <label for="nev">Teljes név</label>
+            <label for="nev">Teljes név:</label>
             <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required value="<?php echo $_SESSION['user']['nev']; ?>">
       </div>
       <div class="form-group">
