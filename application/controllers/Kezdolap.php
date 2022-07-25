@@ -162,6 +162,14 @@ class Kezdolap extends CI_Controller {
 
         $felhasznalo = $this->regisztracio_model->kereses_felhnev_alapjan($felhnev);
 
+        //BEJELENTKEZÉS GÁTOLÁSA - PRÓBA
+        if ($felhasznalo['hitelesites'] == "false") {
+            $this->session->set_flashdata('error', "Sajnos még nem tud bejelentkezni, mert nem történt meg a regisztrációt követő hitelesítés!");
+            $this->session->set_flashdata('last_request', $this->input->post());
+            redirect('kezdolap/bejelentkezes');
+        }
+        //
+
         if (empty($felhasznalo)) {
             $this->session->set_flashdata('error', "Hibás felhasználónév vagy jelszó!");
             $this->session->set_flashdata('last_request', $this->input->post());
