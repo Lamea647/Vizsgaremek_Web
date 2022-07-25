@@ -16,7 +16,7 @@
     <button class="btn btn-warning">
     <a href="<?php echo base_url(); ?>profil/profil_modositas">Profil módosítása</a>
     </button>
-    <button class="btn btn-warning">Profil törlése</button>
+    <button class="btn btn-danger">Profil törlése</button>
     </div>
 </div>
 <div class="row">
@@ -63,13 +63,13 @@
 </div>
 <p style="font-weight: bold;">Hirdetések, amikre jelentkeztem:</p>
 <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/bevasarlas.jpg" alt="kategoria_kepe" style="width:100%">
             <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/kutyasetaltatas.jpg" alt="kategoria_kepe" style="width:100%">
             <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
@@ -78,18 +78,22 @@
 </div><br>
 <p style="font-weight: bold;">Saját hirdetéseim:</p>
 <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%;">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/bevasarlas.jpg" alt="kategoria_kepe" style="width:100%;">
             <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
             <a href="#" class="btn btn-danger">Törlés</a>
+            <a href="#" class="btn btn-success">Elfogadás</a>
+            <a href="#" class="btn btn-secondary">Elutasítás</a>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/takaritas.jpg" alt="kategoria_kepe" style="width:100%">
             <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
             <a id="torlesgomb" onclick="hirdetesTorles()" href="#" class="btn btn-danger">Törlés</a>
+            <a href="#" class="btn btn-success">Elfogadás</a>
+            <a href="#" class="btn btn-secondary">Elutasítás</a>
         </div>
     </div>
 </div>
