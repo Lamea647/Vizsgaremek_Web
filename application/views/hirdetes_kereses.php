@@ -21,7 +21,7 @@
 <div class="container"><h5 style="font-weight: bold; text-align: center;">Találatok:</h5></div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width: 100%">
             <img class="card-img-top" src="<?php echo base_url(); ?>images/kutyasetaltatas.jpg" alt="Card image" style="width:100%">
             <div class="card-body">
@@ -30,7 +30,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width: 100%">
             <img class="card-img-top" src="<?php echo base_url(); ?>images/bevasarlas.jpg" alt="Card image" style="width:100%">
             <div class="card-body">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width: 100%">
             <img class="card-img-top" src="<?php echo base_url(); ?>images/takaritas.jpg" alt="Card image" style="width:100%">
             <div class="card-body">
@@ -48,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3">
+    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width: 100%">
             <img class="card-img-top" src="<?php echo base_url(); ?>images/takaritas.jpg" alt="Card image" style="width:100%">
             <div class="card-body">
