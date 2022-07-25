@@ -34,6 +34,37 @@ class Hirdetes_feladas extends CI_Controller {
         $this->load->view('footer');
     }
 
+    //PRÓBA - hirdetés feladáshoz
+    public function hirdetes_post()
+	{
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('kezdo_idopont', 'Kezdő időpont', 'trim|required');
+		$this->form_validation->set_rules('zaro_idopont', 'Záró időpont', 'trim|required');
+		$this->form_validation->set_rules('leiras', 'Leírás', 'trim|required');
+        $this->form_validation->set_rules('hirdetes_cim', 'Cím', 'trim|required');
+        $this->form_validation->set_rules('telszam_2', 'Másodlagos telefonszám', 'trim');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->session->set_flashdata('error', validation_errors());
+			$this->session->set_flashdata('last_request', $this->input->post());
+			redirect('hirdetes_feladas/hirdetes_feladas');
+		}
+
+		$data = [
+            'kezdo_idopont' => $this->input->post('kezdo_idopont'),
+            'zaro_idopont' => $this->input->post('zaro_idopont'),
+            'kategoria_id' => $this->input->post('kategoria_id'),
+            'telszam_2' => $this->input->post('telszam_2'),
+            'leiras' => $this->input->post('leiras'),
+            'telepules_id' => $this->input->post('telepules_id'),
+            'hirdetes_cim' => $this->input->post('hirdetes_cim'),
+            'hirdeto_id' => $_SESSION['user']['user_id']
+        ];
+        $id = $this->hirdetes_feladas_model->insert($data);
+        $this->session->set_flashdata('success', "Sikeresen feladta hirdetését!");
+        redirect('profil/profil_megtekintes');
+	}
+
 
 }
 
