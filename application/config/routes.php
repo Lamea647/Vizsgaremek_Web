@@ -66,3 +66,5 @@ $route['kijelentkezes'] = "kezdolap/kijelentkezes";
 $route['regisztracio']['GET'] = 'kezdolap/regisztracio';
 $route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
 $route['proba'] = 'kezdolap/proba';
+$route['hirdetes_feladas']['POST'] = 'hirdetes_feladas/hirdetes_post'; //hirdetés feladáshoz
+$route['hirdetes_feladas']['GET'] = 'hirdetes_feladas/hirdetes_feladas';
