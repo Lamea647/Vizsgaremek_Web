@@ -42,9 +42,6 @@
                 <div class="col"><img src="<?php echo base_url(); ?>images/logo.jpg" alt="weboldal logo" style="border-radius: 10px;"></div>
             </header>
             <nav class="navbar navbar-expand-md justify-content-center" style="background-color: rgb(230, 88, 88);">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <ul class="navbar-nav">
                     <li class="nav-item" id="fooldal">
                         <a class="nav-link" href="<?php echo base_url(); ?>">Főoldal</a>
@@ -66,8 +63,7 @@
                     ?>
                     <?php endif;
                     ?>
-                </ul>
-                <ul class="navbar-nav">
+
                     <?php if ($this->session->userdata('user') !== NULL) : ?>
                         <li class="nav-item" id="kijelentkezes">
                             <a class="nav-link" href="<?php echo base_url(); ?>kijelentkezes">Kijelentkezés</a>
@@ -82,7 +78,6 @@
                         </li>
                     <?php endif;
                     ?>
-                </ul>
             </nav>
             <div class="container">
                 <?php if ($this->session->userdata('success') !== NULL) : ?>
