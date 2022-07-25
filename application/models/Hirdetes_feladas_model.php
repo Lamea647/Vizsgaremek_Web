@@ -24,6 +24,14 @@ public function kategoriakSzama(){
 
 }
 
+//PRÓBA - hirdetésfeladáshoz
+public function insert($data){
+    $this->db->insert('hirdetes', $data);
+}
+
+
+
+
 }
 
 /* End of file Hirdetes_feladas_model.php */
