@@ -12,7 +12,7 @@
         <div class="form-group">
             <p>Kategória:</p>
             <select class="form-control" id="kategoria_id" name="kategoria_id">
-            <?php for ($x = 0; $x < 12; $x++) {?>
+            <?php for ($x = 0; $x < $kategoria_szam; $x++) {?>
             <option value="<?php echo $x+1; ?>"><?php echo $kategoria_nev[$x]['kategoria_nev']; ?></option> <?php } ?>
             </select> 
         </div>
@@ -23,7 +23,7 @@
         <div class="form-group">
             <label for="telepules_id">Település:</label>
             <select class="form-control" id="telepules_id" name="telepules_id" required>
-            <?php for ($x = 0; $x < $szam; $x++):?>
+            <?php for ($x = 0; $x < $telepules_szam; $x++):?>
                 <option value="
                 <?php if($x+1 == $_SESSION['user']['telepules_id']):?>
                     <?php echo $x+1; ?>" selected>
