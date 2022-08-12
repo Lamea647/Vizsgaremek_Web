@@ -4,16 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kezdolap extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
         $this->load->model('regisztracio_model');
     }
 
-    public function index()
-    {
+    public function index(){
         $this->load->view('header', ['oldal' => 'fooldal']);
         $this->load->view('kezdolap');
         $this->load->view('footer');
@@ -31,11 +29,9 @@ class Kezdolap extends CI_Controller {
         $this->load->view('header', ['oldal' => 'regisztracio']);
         $this->load->view('regisztracio', $data);
         $this->load->view('footer');
-
     }
 
-    public function regisztracio_post()
-	{
+    public function regisztracio_post(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required');
 		$this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required|is_unique[user.felhnev]');
@@ -146,8 +142,7 @@ class Kezdolap extends CI_Controller {
         $this->load->view('footer');
     }
 
-    public function bejelentkezes_post()
-    {
+    public function bejelentkezes_post(){
         $this->load->library('form_validation');
         $this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required');
         $this->form_validation->set_rules('jelszo', 'Jelszó', 'trim|required');
@@ -195,8 +190,7 @@ class Kezdolap extends CI_Controller {
         redirect('kezdolap');
     }
 
-	public function kijelentkezes()
-	{	
+	public function kijelentkezes(){	
 		$this->session->unset_userdata('user');
         $this->session->set_flashdata('success', "Sikeres kijelentkezés!");
         redirect('kezdolap');
