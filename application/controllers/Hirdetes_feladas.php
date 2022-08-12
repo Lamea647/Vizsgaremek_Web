@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Hirdetes_feladas extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('hirdetes_feladas_model');
@@ -19,15 +18,16 @@ class Hirdetes_feladas extends CI_Controller {
         //print_r($kategoria_nev);
         $data['kategoria_nev'] = $kategoria_nev;
 
-        //$szam_kategoria változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
-        $szam_kategoria = $this->hirdetes_feladas_model->kategoriakSzama();
-        $data['szam_kategoria'] = $szam_kategoria;
+        //$kategoria_szam változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
+        $kategoria_szam = $this->hirdetes_feladas_model->kategoriakSzama();
+        $data['kategoria_szam'] = $kategoria_szam;
+
+        //$telepules_szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
+        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $data['telepules_szam'] = $telepules_szam;
 
         $telepules = $this->telepules_model->get_all();
         $data['telepules'] = $telepules;
-
-        $szam = $this->regisztracio_model->telepulesekSzama();
-        $data['szam'] = $szam;
 
         $this->load->view('header', ['oldal' => 'hirdetes_feladasa']);
         $this->load->view('hirdetes_feladas', $data);
@@ -35,8 +35,7 @@ class Hirdetes_feladas extends CI_Controller {
     }
 
     //PRÓBA - hirdetés feladáshoz
-    public function hirdetes_post()
-	{
+    public function hirdetes_post(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('kezdo_idopont', 'Kezdő időpont', 'trim|required');
 		$this->form_validation->set_rules('zaro_idopont', 'Záró időpont', 'trim|required');
