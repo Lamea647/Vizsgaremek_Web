@@ -2,14 +2,14 @@
 <div class="form-group">
     <label for="kategoria_id">Kategória szerinti szűrés:</label>
     <select class="form-control" id="kategoria_id" name="kategoria_id">
-    <?php for ($x = 0; $x < 12; $x++) {?>
+    <?php for ($x = 0; $x < $kategoria_szam; $x++) {?>
     <option value="<?php echo $x+1; ?>"><?php echo $kategoria_nev[$x]['kategoria_nev']; ?></option> <?php } ?>
     </select> 
 </div>
 <div class="form-group">
     <label for="telepules_id">Település szerinti szűrés:</label>
     <select class="form-control" id="telepules_id" name="telepules_id">
-    <?php for ($x = 0; $x < 3180; $x++) {?>
+    <?php for ($x = 0; $x < $telepules_szam; $x++) {?>
     <option value="<?php echo $x+1; ?>"><?php echo $telepules[$x]['telepules']; ?></option> <?php } ?>
     </select> 
 </div>
