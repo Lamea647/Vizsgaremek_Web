@@ -68,3 +68,7 @@ $route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
 $route['proba'] = 'kezdolap/proba';
 $route['hirdetes_feladas']['POST'] = 'hirdetes_feladas/hirdetes_post'; //hirdetés feladáshoz
 $route['hirdetes_feladas']['GET'] = 'hirdetes_feladas/hirdetes_feladas';
+$route['adatok_mod/(:num)']['PUT'] = 'profil/adatok_mod/$1'; //profil módosításhoz - jóváhagyás nélküli 1. form
+//$route['api/(:num)']['POST'] = 'api/user/index_put/$1';
+$route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
+
