@@ -1,36 +1,52 @@
 <div class="row">
     <div class="col-sm-4">
-        <img class="img-fluid" src="<?php echo base_url(); ?>uploads/tesztelek_profil_2022_03_02_13_30_00.jpg" alt="hirdeto_profilkepe">
+        <img class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $_SESSION['user']['profilkep'];?>" alt="hirdeto_profilkepe">
     </div>
     <div class="col-sm-8">
         <table style="width:100%">
             <tr>
                 <td>Teljes név:</td>
-                <td>Teszt Elek</td>
+                <td><?php echo $_SESSION['user']['nev'];?></td>
             </tr>
             <tr>
                 <td>Település:</td>
-                <td>Szentendre</td>
+                <td>
+                    <?php 
+                        for ($i=0; $i < $telepules_szam ; $i++): 
+                            if($hirdetesek['telepules_id'] == $i+1):
+                                echo $telepules[$i]['telepules'];
+                            endif;
+                        endfor;
+                    ?>
+                </td>
             </tr>
             <tr>
                 <td>Cím:</td>
-                <td>1111, Teszt utca 5.</td>
+                <td><?php echo $hirdetesek['hirdetes_cim'];?></td>
             </tr>
             <tr>
                 <td>Telefonszám:</td>
-                <td>06 30 234 12 67</td>
+                <td><?php echo $_SESSION['user']['telszam'];?></td>
             </tr>
             <tr>
                 <td>Másodlagos telefonszám:</td>
-                <td>06 20 897 12 56</td>
+                <td><?php echo $hirdetesek['telszam_2'];?></td>
             </tr>
             <tr>
                 <td>Időpont:</td>
-                <td>2022.02.25. 15:00</td>
+                <td><?php echo $hirdetesek['kezdo_idopont'];?></td>
             </tr>
             <tr>
                 <td>Kategória:</td>
-                <td>Kutyasétáltatás</td>
+                <td>
+                    <?php 
+                        for ($i=0; $i < $kategoria_szam ; $i++): 
+                            if($hirdetesek['kategoria_id'] == $i+1):
+                                echo $kategoria_nev[$i]['kategoria_nev'];
+                            endif;
+                        endfor;
+                    ?>
+                </td>    
             </tr>
         </table>
     </div> 
@@ -38,11 +54,22 @@
 <div class="row">
     <div class="col-sm-12">
         <p>Leírás:</p>
-        <p style="text-align: justify;">Ez a hirdetéshez tartozó leírás teljes hosszában történő megjelenítésére szolgál. Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <p style="text-align: justify;"><?php echo $hirdetesek['leiras'];?></p>
     </div>
 </div>
 <button class="btn btn-warning">Jelentkezem</button>
 <br>
+
+
+
+
+
+
+
+
+  
+
+
   
 
 
