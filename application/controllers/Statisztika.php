@@ -9,11 +9,21 @@ class Statisztika extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
+        $this->load->model('ranglista_model');
     }
 
     public function ranglista_megtekintes(){
+        $hirdetes_szam = $this->ranglista_model->hirdetesekSzama();
+        $data['hirdetes_szam'] = $hirdetes_szam;
+
+        $adatok = $this->ranglista_model->kategoriankentiHirdetes();
+        $data['adatok'] = $adatok;
+
+        $kategoriaAdatok = $this->ranglista_model->kategoriaAdatok();
+        $data['kategoriaAdatok'] = $kategoriaAdatok;
+
         $this->load->view('header', ['oldal' => 'ranglista']);
-        $this->load->view('statisztika');
+        $this->load->view('statisztika', $data);
         $this->load->view('footer');
     }
 
