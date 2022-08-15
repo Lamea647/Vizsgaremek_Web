@@ -1,10 +1,11 @@
 <br>
 <div class="container"><h6 style="font-weight: bold; text-align: center;">Profil módosítása (jóváhagyás nélkül, azonnal életbe lépnek):</h6></div>
 <div class="container">
+    <form action="<?php echo base_url(). 'adatok_mod/' . $_SESSION['user']['user_id']; ?>" method="post" enctype="multipart/form-data">
     <div class="form-group">
             <label for="telepules_id">Település:</label>
             <select class="form-control" id="telepules_id" name="telepules_id" required>
-            <?php for ($x = 0; $x < $szam; $x++):?>
+            <?php for ($x = 0; $x < $telepules_szam; $x++):?>
                 <option value="
                 <?php if($x+1 == $_SESSION['user']['telepules_id']):?>
                     <?php echo $x+1; ?>" selected>
@@ -25,9 +26,10 @@
     </div>
     <div class="form-group">
             <label for="profilkep">Új profilkép feltöltése:</label>
-            <input accept=".jpg,.jpeg,.png,.bmp" type="file" class="form-control-file" id="profilkep" name="profilkep" required>
+            <input accept=".jpg,.jpeg,.png,.bmp" type="file" class="form-control-file" id="profilkep" name="profilkep">
     </div>
     <button type="submit" class="btn btn-warning">Profil módosítása</button>
+    </form>
 </div><br>
 
 <div class="container"><h6 style="font-weight: bold; text-align: center;">Profil módosítása (jóváhagyás szükséges az adatok módosítását követően):</h6></div>
