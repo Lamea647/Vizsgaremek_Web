@@ -76,26 +76,20 @@
         </div>
     </div>
 </div><br>
+
 <p style="font-weight: bold;">Saját hirdetéseim:</p>
 <div class="row">
+<?php foreach ($kategoriak as $kategoria) {?>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%;">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/bevasarlas.jpg" alt="kategoria_kepe" style="width:100%;">
-            <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
-            <a href="#" class="btn btn-danger">Törlés</a>
-            <a href="#" class="btn btn-success">Elfogadás</a>
-            <a href="#" class="btn btn-secondary">Elutasítás</a>
-        </div>
-    </div>
-    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
-        <div class="card" style="width:100%">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/takaritas.jpg" alt="kategoria_kepe" style="width:100%">
-            <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
+            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoria['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
+            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $kategoria['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
             <a id="torlesgomb" onclick="hirdetesTorles()" href="#" class="btn btn-danger">Törlés</a>
             <a href="#" class="btn btn-success">Elfogadás</a>
             <a href="#" class="btn btn-secondary">Elutasítás</a>
         </div>
     </div>
+<?php } ?>
 </div>
 
 <script>
