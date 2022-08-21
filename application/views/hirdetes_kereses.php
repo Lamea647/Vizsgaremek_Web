@@ -32,7 +32,7 @@
     </div>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width: 100%">
-            <img class="card-img-top" src="<?php echo base_url(); ?>images/bevasarlas.jpg" alt="Card image" style="width:100%">
+            <img class="card-img-top" src="<?php echo base_url(); ?>images/vasarlas.jpg" alt="Card image" style="width:100%">
             <div class="card-body">
             <p class="card-text" style="text-align: justify;"><?php echo "Ez egy szövegrészlet a hirdetés feladásakor kötelezően kitöltött, a hirdetést ismertető leírásból."?></p>
             <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
