@@ -71,4 +71,5 @@ $route['hirdetes_feladas']['GET'] = 'hirdetes_feladas/hirdetes_feladas';
 $route['adatok_mod/(:num)']['PUT'] = 'profil/adatok_mod/$1'; //profil módosításhoz - jóváhagyás nélküli 1. form
 //$route['api/(:num)']['POST'] = 'api/user/index_put/$1';
 $route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
+$route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkezés után a hirdetes_kereses oldalra irányítás
 
