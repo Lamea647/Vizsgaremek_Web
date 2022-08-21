@@ -23,8 +23,8 @@ class Kezdolap extends CI_Controller {
         $data['telepules'] = $telepules;
 
         //$szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
-        $szam = $this->regisztracio_model->telepulesekSzama();
-        $data['szam'] = $szam;
+        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $data['telepules_szam'] = $telepules_szam;
         
         $this->load->view('header', ['oldal' => 'regisztracio']);
         $this->load->view('regisztracio', $data);
@@ -34,14 +34,14 @@ class Kezdolap extends CI_Controller {
     public function regisztracio_post(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required');
-		$this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required|is_unique[user.felhnev]');
+		$this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required|is_unique[user.felhnev]|min_length[6]|max_length[100]');
 		$this->form_validation->set_rules('szuldatum', 'Születési dátum', 'trim|required');
-		$this->form_validation->set_rules('telszam', 'Telefonszám', 'trim|required');
-		$this->form_validation->set_rules('email', 'E-mail cím', 'trim|required|valid_email|is_unique[user.email]');
+		$this->form_validation->set_rules('telszam', 'Telefonszám', 'trim|required|min_length[7]|max_length[30]');
+		$this->form_validation->set_rules('email', 'E-mail cím', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telepules_id', 'Település');
-        $this->form_validation->set_rules('cim', 'Cím', 'trim|required');
-        $this->form_validation->set_rules('okmanyszam', 'Feltöltött okmány száma', 'trim|required');
-        $this->form_validation->set_rules('feltetelek', 'Felhasználói feltételek és Adatvédelmi irányelvek elfogadása.','required');
+        $this->form_validation->set_rules('cim', 'Cím', 'trim|required|min_length[8]|max_length[100]');
+        $this->form_validation->set_rules('okmanyszam', 'Feltöltött okmány száma', 'trim|required|max_length[100]');
+        $this->form_validation->set_rules('feltetelek', 'Elfogadom a Felhasználói feltételeket és az Adatvédelmi irányelveket.','required');
 
 		if (empty($_FILES['okmanykep']['name'])) {
 			$this->form_validation->set_rules('okmanykep', 'Okmánykép feltöltése', 'required');
@@ -50,8 +50,8 @@ class Kezdolap extends CI_Controller {
 			$this->form_validation->set_rules('profilkep', 'Profilkép feltöltése', 'required');
 		}
 
-        $this->form_validation->set_rules('jelszo', 'Jelszó', 'trim|required');
-        $this->form_validation->set_rules('jelszoujra', 'Jelszó megerősítése', 'trim|required|matches[jelszo]');
+        $this->form_validation->set_rules('jelszo', 'Jelszó', 'trim|required|min_length[6]|max_length[100]|regex_match[(?=.*\d)(?=.*[A-Za-z]).{6,100}]');
+        $this->form_validation->set_rules('jelszoujra', 'Jelszó megerősítése', 'trim|required|matches[jelszo]|min_length[6]|max_length[100]||regex_match[(?=.*\d)(?=.*[A-Za-z]).{6,100}]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->session->set_flashdata('error', validation_errors());
@@ -133,7 +133,7 @@ class Kezdolap extends CI_Controller {
         ];
         $id = $this->regisztracio_model->insert($data);
         $this->session->set_flashdata('success', "Sikeres regisztráció!");
-        redirect('kezdolap/bejelentkezes');
+        redirect('kezdolap');
 	}
 
     public function bejelentkezes(){
@@ -187,7 +187,7 @@ class Kezdolap extends CI_Controller {
 
 
         $this->session->set_flashdata('success', "Sikeres bejelentkezés!");
-        redirect('kezdolap');
+        redirect('hirdetes_kereses');
     }
 
 	public function kijelentkezes(){	
