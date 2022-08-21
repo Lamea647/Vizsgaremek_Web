@@ -26,15 +26,7 @@
             </tr>
             <tr>
                 <td>Telefonszám:</td>
-                <td><?php echo $_SESSION['user']['telszam'];?></td>
-            </tr>
-            <tr>
-                <td>Másodlagos telefonszám:</td>
-                <td><?php echo $hirdetesek['telszam_2'];?></td>
-            </tr>
-            <tr>
-                <td>Időpont:</td>
-                <td><?php echo $hirdetesek['kezdo_idopont'];?></td>
+                <td>06 30 456 3423</td>
             </tr>
             <tr>
                 <td>Kategória:</td>
@@ -47,6 +39,14 @@
                         endfor;
                     ?>
                 </td>    
+            </tr>
+            <tr>
+                <td>Időpont kezdete:</td>
+                <td><?php echo $hirdetesek['kezdo_idopont'];?></td>
+            </tr>
+            <tr>
+                <td>Időpont vége:</td>
+                <td><?php echo $hirdetesek['zaro_idopont'];?></td>
             </tr>
         </table>
     </div> 
