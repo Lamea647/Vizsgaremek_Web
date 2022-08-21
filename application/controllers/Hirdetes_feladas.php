@@ -40,8 +40,8 @@ class Hirdetes_feladas extends CI_Controller {
 		$this->form_validation->set_rules('kezdo_idopont', 'Kezdő időpont', 'trim|required');
 		$this->form_validation->set_rules('zaro_idopont', 'Záró időpont', 'trim|required');
 		$this->form_validation->set_rules('leiras', 'Leírás', 'trim|required');
-        $this->form_validation->set_rules('hirdetes_cim', 'Cím', 'trim|required');
-        $this->form_validation->set_rules('telszam_2', 'Másodlagos telefonszám', 'trim');
+        $this->form_validation->set_rules('hirdetes_cim', 'Cím', 'trim|required|min_length[8]|max_length[100]');
+        $this->form_validation->set_rules('hirdetes_telszam', 'Telefonszám', 'trim|required|min_length[7]|max_length[30]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->session->set_flashdata('error', validation_errors());
@@ -53,7 +53,7 @@ class Hirdetes_feladas extends CI_Controller {
             'kezdo_idopont' => $this->input->post('kezdo_idopont'),
             'zaro_idopont' => $this->input->post('zaro_idopont'),
             'kategoria_id' => $this->input->post('kategoria_id'),
-            'telszam_2' => $this->input->post('telszam_2'),
+            'hirdetes_telszam' => $this->input->post('hirdetes_telszam'),
             'leiras' => $this->input->post('leiras'),
             'telepules_id' => $this->input->post('telepules_id'),
             'hirdetes_cim' => $this->input->post('hirdetes_cim'),
@@ -61,7 +61,7 @@ class Hirdetes_feladas extends CI_Controller {
         ];
         $id = $this->hirdetes_feladas_model->insert($data);
         $this->session->set_flashdata('success', "Sikeresen feladta hirdetését!");
-        redirect('profil/profil_megtekintes');
+        redirect('kezdolap');//kezdőlapra történő átirányítás
 	}
 
 
