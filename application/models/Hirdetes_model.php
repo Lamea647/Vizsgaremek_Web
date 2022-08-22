@@ -59,6 +59,15 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function hirdetesLeiras($hirdetes_id){
+        $this->db->select('leiras');
+        $this->db->from('hirdetes');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $query = $this->db->get();
+        return $result = $query->row_array();
+    }
+
+
 
 
 }
