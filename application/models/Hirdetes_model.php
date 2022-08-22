@@ -50,14 +50,23 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
-    public function nevProfilkep($hirdetes_id){
-        $this->db->select('nev, profilkep');
-        $this->db->from('user');
-        $this->db->join('hirdetes', 'hirdetes.hirdeto_id = user.user_id');
+    public function kategoriaKep($hirdetes_id){
+        $this->db->select('kategoria_kep');
+        $this->db->from('kategoria');
+        $this->db->join('hirdetes', 'hirdetes.kategoria_id = kategoria.kategoria_id');
         $this->db->where('hirdetes_id', $hirdetes_id);
         $query = $this->db->get();
         return $result = $query->result_array();
     }
+
+    public function hirdetesLeiras($hirdetes_id){
+        $this->db->select('leiras');
+        $this->db->from('hirdetes');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $query = $this->db->get();
+        return $result = $query->row_array();
+    }
+
 
 
 
