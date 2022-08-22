@@ -50,6 +50,16 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function kategoriaKep($hirdetes_id){
+        $this->db->select('kategoria_kep');
+        $this->db->from('kategoria');
+        $this->db->join('hirdetes', 'hirdetes.kategoria_id = kategoria.kategoria_id');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
+
+
 
 }
 
