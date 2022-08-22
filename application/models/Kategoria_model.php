@@ -29,5 +29,10 @@ class Kategoria_model extends CI_Model {
         return $this->db->get('kategoria')->result_array();
     }
 
+    public function kategoriakSzama(){
+        return $this->db->count_all('kategoria');
+    }
+
+
     
 }
