@@ -39,6 +39,12 @@ class Kategoria_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function kategoria_kepek(){
+        $this->db->select('kategoria_kep');
+        $query = $this->db->get('kategoria');
+        return $result = $query->result_array();
+    }
+
 
 
     
