@@ -33,6 +33,13 @@ class Kategoria_model extends CI_Model {
         return $this->db->count_all('kategoria');
     }
 
+    public function kategoria_lista(){
+        $this->db->select('kategoria_nev');
+        $query = $this->db->get('kategoria');
+        return $result = $query->result_array();
+    }
+
+
 
     
 }
