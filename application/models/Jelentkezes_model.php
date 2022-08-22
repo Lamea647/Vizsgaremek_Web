@@ -8,8 +8,9 @@ class Jelentkezes_model extends CI_Model {
         $this->load->database();
     }
 
-    
-
+    public function jelentkezes_rogzitese($data){
+        $this->db->insert('jelentkezes', $data);
+    }
 
 }
 
