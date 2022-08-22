@@ -39,6 +39,14 @@ class Ranglista_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function darabszamKategoriankent(){
+        $sql = "SELECT kategoria.kategoria_id AS 'Kategória', COUNT(hirdetes.hirdetes_id) AS 'Darabszám' FROM hirdetes RIGHT JOIN kategoria ON hirdetes.kategoria_id = kategoria.kategoria_id GROUP BY kategoria.kategoria_id";
+        return $result = $this->db->query($sql)->result_array();
+    }
+
+
+
+
 
 }
 
