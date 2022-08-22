@@ -108,6 +108,15 @@ class Hirdetes_model extends CI_Model {
     }
 
 
+    public function hirdetesAzonositokAmikreJelentkezettAFelhasznalo($user_id){
+        $this->db->select('hirdetes_id');
+        $this->db->from('jelentkezes');
+        $this->db->where('jelentkezo_id', $user_id);
+        $this->db->where('jovahagyas_onkentes', 'true');
+        $this->db->where('jovahagyas_hirdeto', 'false');
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
 
 
 
