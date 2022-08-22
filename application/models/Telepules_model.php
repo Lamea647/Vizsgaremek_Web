@@ -29,5 +29,10 @@ class Telepules_model extends CI_Model {
         return $this->db->get('telepules')->result_array();
     }
 
+
+    public function telepulesekSzama(){
+        return $this->db->count_all('telepules');
+    }
+
     
 }
