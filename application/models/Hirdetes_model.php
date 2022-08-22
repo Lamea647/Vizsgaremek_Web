@@ -129,6 +129,15 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function hirdetesAdatai($hirdetes_id){
+        $this->db->select('*');
+        $this->db->from('hirdetes');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
+
+
 
 
 
