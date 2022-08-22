@@ -72,4 +72,5 @@ $route['adatok_mod/(:num)']['PUT'] = 'profil/adatok_mod/$1'; //profil módosít�
 //$route['api/(:num)']['POST'] = 'api/user/index_put/$1';
 $route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
 $route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkezés után a hirdetes_kereses oldalra irányítás
+$route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
 
