@@ -76,6 +76,14 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function telepulesnev($hirdetes_id){
+        $this->db->select('telepules');
+        $this->db->from('telepules');
+        $this->db->join('hirdetes', 'hirdetes.telepules_id = telepules.telepules_id');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
 
 
 }
