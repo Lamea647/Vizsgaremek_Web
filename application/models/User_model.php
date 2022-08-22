@@ -46,6 +46,15 @@ class User_model extends CI_Model {
         $this->db->delete('user');
     }
 
+
+    //Bejelentkezéshez + Profil oldalhoz használható
+
+    public function kereses_felhnev_alapjan($felhnev){
+        $this->db->where('felhnev', $felhnev);
+        return $this->db->get('user')->row_array();
+    }
+
+
 }
 
 /* End of file ModelName.php */
