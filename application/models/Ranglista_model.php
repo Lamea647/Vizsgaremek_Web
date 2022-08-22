@@ -30,6 +30,16 @@ class Ranglista_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function rangLista(){
+        $this->db->select('pontszam, profilkep');
+        $this->db->from('user');
+        $this->db->order_by('pontszam', 'DESC');
+        $this->db->limit(5);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
+
+
 }
 
 /* End of file Ranglista_model.php */
