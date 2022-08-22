@@ -94,6 +94,11 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function hirdetesekSzama(){
+        return $this->db->count_all('hirdetes');
+    }
+
+
     public function hirdetesAdatok($hirdetes_id){
         $this->db->select('kezdo_idopont,zaro_idopont,leiras,hirdetes_telszam,hirdetes_cim');
         $this->db->from('hirdetes');
