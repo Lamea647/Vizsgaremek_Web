@@ -28,11 +28,11 @@ class Hirdetes_model extends CI_Model {
         return $this->db->get('hirdetes')->result_array();
     }
 
-    //Hirdetés rögzítése még fejlesztés alatt
-    /*public function hirdetes_rogzitese($data)
+    //Hirdetés rögzítése 
+    public function hirdetes_rogzitese($data)
     {
         $this->db->insert('hirdetes', $data);
-    }*/
+    }
 
     public function hirdetes_torlese($id)
     {
