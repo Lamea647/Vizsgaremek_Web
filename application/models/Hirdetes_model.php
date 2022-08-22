@@ -40,6 +40,17 @@ class Hirdetes_model extends CI_Model {
         $this->db->delete('hirdetes');
     }
 
+    public function hirdetesKereses($telepules_id, $kategoria_id, $kezdo_idopont, $user_id){
+        $this->db->select('*');
+        $this->db->where('telepules_id',$telepules_id);
+        $this->db->where('kategoria_id',$kategoria_id);
+        $this->db->like('kezdo_idopont',$kezdo_idopont, 'after');
+        $this->db->where('hirdeto_id !=',$user_id);
+        $query = $this->db->get('hirdetes');
+        return $result = $query->result_array();
+    }
+
+
 }
 
 
