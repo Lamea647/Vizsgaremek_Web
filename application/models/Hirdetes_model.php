@@ -194,6 +194,11 @@ class Hirdetes_model extends CI_Model {
         return $result = $this->db->query($sql)->result_array();
     }
 
+    public function jovahagyasravaroHirdetesekAdatai ($user_id){
+        $sql = "SELECT * FROM hirdetes h JOIN jelentkezes j ON h.hirdetes_id = j.hirdetes_id WHERE j.jovahagyas_onkentes = 'true' AND j.jovahagyas_hirdeto = 'false' AND hirdeto_id = $user_id";
+        return $result = $this->db->query($sql)->result_array();
+    }
+
 
 
 
