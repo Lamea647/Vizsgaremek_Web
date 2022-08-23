@@ -12,6 +12,13 @@ class Jelentkezes_model extends CI_Model {
         $this->db->insert('jelentkezes', $data);
     }
 
+    public function jelentkezesJovahagyasa($hirdetes_id){
+        $this->db->set('jovahagyas_hirdeto', 'true');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $this->db->update('jelentkezes');
+    }
+
+
 }
 
 /* End of file Jelentkezes_model.php */
