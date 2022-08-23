@@ -59,6 +59,14 @@ class User_model extends CI_Model {
         return $result = $this->db->query($sql)->result_array();
     }
 
+    public function telepulesAzonositoUser($user_id){
+        $this->db->select('telepules_id');
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('user');
+        return $result = $query->result_array();
+    }
+
+
 
 
 }
