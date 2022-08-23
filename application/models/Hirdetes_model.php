@@ -168,6 +168,13 @@ class Hirdetes_model extends CI_Model {
     }
 
 
+    public function sajatHirdetesAzonositok($user_id){
+        $this->db->select('hirdetes_id');
+        $this->db->from('hirdetes');
+        $this->db->where('hirdeto_id', $user_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
 
 
 
