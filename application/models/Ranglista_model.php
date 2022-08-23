@@ -44,9 +44,12 @@ class Ranglista_model extends CI_Model {
         return $result = $this->db->query($sql)->result_array();
     }
 
-
-
-
+    public function felhasznalokPontszamai(){
+        $this->db->select('pontszam, user_id');
+        $this->db->from('user');
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
 
 }
 
