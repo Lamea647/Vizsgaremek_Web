@@ -54,6 +54,12 @@ class User_model extends CI_Model {
         return $this->db->get('user')->row_array();
     }
 
+    public function kategoriaKepekListazasa($user_id){
+        $sql = "SELECT DISTINCT kategoria_kep FROM kategoria WHERE kategoria_id IN (SELECT kategoria_id FROM hirdetes h JOIN jelentkezes j ON h.hirdetes_id = j.hirdetes_id WHERE j.jovahagyas_onkentes = 'true' AND j.jovahagyas_hirdeto = 'true' AND jelentkezo_id = $user_id)"; 
+        return $result = $this->db->query($sql)->result_array();
+    }
+
+
 
 }
 
