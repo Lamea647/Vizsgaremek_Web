@@ -189,6 +189,12 @@ class Hirdetes_model extends CI_Model {
         $this->db->delete('hirdetes');
     }
 
+    public function kategoriaKepekJovahagyasravaroHirdetesek ($user_id){
+        $sql = "SELECT kategoria_kep FROM kategoria WHERE kategoria_id IN (SELECT h.kategoria_id FROM hirdetes h LEFT JOIN user u ON u.user_id=h.hirdeto_id LEFT JOIN jelentkezes j ON j.hirdetes_id=h.hirdetes_id WHERE j.jovahagyas_onkentes = 'true' AND j.jovahagyas_hirdeto = 'false' AND u.user_id = $user_id)";
+        return $result = $this->db->query($sql)->result_array();
+    }
+
+
 
 
 
