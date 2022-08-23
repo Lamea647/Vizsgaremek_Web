@@ -18,6 +18,12 @@ class Jelentkezes_model extends CI_Model {
         $this->db->update('jelentkezes');
     }
 
+    public function jelentkezesElutasitasa($hirdetes_id){
+        $this->db->set('jovahagyas_onkentes', 'false');
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $this->db->update('jelentkezes');
+    }
+
 
 }
 
