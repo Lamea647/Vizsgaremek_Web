@@ -184,6 +184,11 @@ class Hirdetes_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function sajatHirdetesTorlese ($hirdetes_id){
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $this->db->delete('hirdetes');
+    }
+
 
 
 
