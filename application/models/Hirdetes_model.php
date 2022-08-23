@@ -142,6 +142,16 @@ class Hirdetes_model extends CI_Model {
         return $result = $this->db->query($sql)->result_array();
     }
 
+    public function sajatHirdeteseim($user_id){
+        $this->db->select('kategoria_kep');
+        $this->db->from('kategoria');
+        $this->db->join('hirdetes', 'hirdetes.kategoria_id = kategoria.kategoria_id');
+        $this->db->where('hirdeto_id', $user_id);
+        $query = $this->db->get();
+        return $result = $query->result_array();
+    }
+
+
 
 
 
