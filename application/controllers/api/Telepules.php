@@ -38,4 +38,15 @@ class Telepules extends REST_Controller {
         $this->response($data, $response_code);
     }
 
+
+    public function telepulesekSzama_get(){   
+        $adatok = [];
+        $response_code = REST_Controller::HTTP_OK;
+        $adatok = $this->telepules_model->telepulesekSzama();
+        $data = [
+            'adatok' => $adatok,
+        ];
+        $this->response($data, $response_code);
+}
+
 }
