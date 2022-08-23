@@ -66,6 +66,14 @@ class User_model extends CI_Model {
         return $result = $query->result_array();
     }
 
+    public function userAdatok($user_id){
+        $this->db->select('*');
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('user');
+        return $result = $query->result_array();
+    }
+
+
 
 
 
