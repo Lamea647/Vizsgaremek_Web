@@ -6,23 +6,24 @@ class Hirdetes_kereses extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
-        $this->load->helper('url');
-        $this->load->model('hirdetes_feladas_model'); 
-        $this->load->model('regisztracio_model'); 
+        $this->load->helper('url'); 
+        $this->load->model('kategoria_model'); 
+        $this->load->model('telepules_model');
+        $this->load->model('hirdetes_model');
         $this->load->library('session');
     }
 
     public function hirdetes_kereses(){
-        $kategoria_nev = $this->hirdetes_feladas_model->kategoria_lista();
+        $kategoria_nev = $this->kategoria_model->kategoria_lista();
         $data['kategoria_nev'] = $kategoria_nev;
 
-        $kategoria_szam = $this->hirdetes_feladas_model->kategoriakSzama();
+        $kategoria_szam = $this->kategoria_model->kategoriakSzama();
         $data['kategoria_szam'] = $kategoria_szam;
 
-        $telepules = $this->regisztracio_model->telepules_lista();
+        $telepules = $this->telepules_model->get_all();
         $data['telepules'] = $telepules;
 
-        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
         
         $this->load->view('header', ['oldal' => 'hirdetesek_keresese']);
@@ -31,19 +32,23 @@ class Hirdetes_kereses extends CI_Controller {
     }
 
     public function hirdetes_megtekintes($id){
-        $data['hirdetesek']= $this->hirdetes_feladas_model->konkretHirdetesMegjelenitese($id);
+        $hirdetesek = $this->hirdetes_model->hirdetesAzonositoAlapjan($id);
+        $data['hirdetesek'] = $hirdetesek;
 
-        $kategoria_nev = $this->hirdetes_feladas_model->kategoria_lista();
+        $kategoria_nev = $this->kategoria_model->kategoria_lista();
         $data['kategoria_nev'] = $kategoria_nev;
 
-        $kategoria_szam = $this->hirdetes_feladas_model->kategoriakSzama();
+        $kategoria_szam = $this->kategoria_model->kategoriakSzama();
         $data['kategoria_szam'] = $kategoria_szam;
 
-        $telepules = $this->regisztracio_model->telepules_lista();
+        $telepules = $this->telepules_model->get_all();
         $data['telepules'] = $telepules;
 
-        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
+
+        $nev_profilkep = $this->hirdetes_model->nevProfilkep($id);
+        $data['nev_profilkep'] = $nev_profilkep;
 
         $this->load->view('header');
         $this->load->view('hirdetes', $data);
