@@ -51,40 +51,32 @@
 </div><br>
 <p style="font-weight: bold;">Díjaim:</p>
 <div class="row">
+<?php foreach ($kategoriaKepek as $kategoriakep) {?>
     <div class="col-sm-3 col-lg-2">
-        <img style="width: 200px; height: 150px;" class="img-thumbnail" src="<?php echo base_url(); ?>images/kutyasetaltatas.jpg" alt="kategoria_kepe">
+        <img style="width: 200px; height: 150px;" class="img-thumbnail" src="<?php echo base_url(); ?>images/<?php echo $kategoriakep['kategoria_kep']; ?>"alt="kategoria_kepe">
     </div>
-    <div class="col-sm-3 col-lg-2">
-        <img style="width: 200px; height: 150px;" class="img-thumbnail" src="<?php echo base_url(); ?>images/vasarlas.jpg" alt="kategoria_kepe">
-    </div>
-    <div class="col-sm-3 col-lg-2">
-        <img style="width: 200px; height: 150px;" class="img-thumbnail" src="<?php echo base_url(); ?>images/takaritas.jpg" alt="kategoria_kepe">
-    </div>
+<?php } ?>
 </div><br>
 
 <p style="font-weight: bold;">Hirdetések, amikre jelentkeztem:</p>
 <div class="row">
+    <?php for ($i=0; $i < count($hirdetesIdkJelentkezesek) ; $i++) {?>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/vasarlas.jpg" alt="kategoria_kepe" style="width:100%">
-            <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
+            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoriaKepekJelentkezesek[$i]['kategoria_kep']; ?>" alt="kategoria_kepe" style="width:100%">
+            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $hirdetesIdkJelentkezesek[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
         </div>
     </div>
-    <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
-        <div class="card" style="width:100%">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/kutyasetaltatas.jpg" alt="kategoria_kepe" style="width:100%">
-            <a href="#" class="btn btn-warning">Tovább a hirdetésre</a>
-        </div>
-    </div>
+<?php } ?>
 </div>
 
 <p style="font-weight: bold;">Saját hirdetéseim:</p>
 <div class="row">
-<?php foreach ($kategoriak as $kategoria) {?>
+<?php for ($i=0; $i < count($sajatHirdetesAdatok) ; $i++) {?>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%;">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoria['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
-            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $kategoria['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
+            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $sajatHirdetesKategoriaKepek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
+            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $sajatHirdetesAdatok[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
             <a id="torlesgomb" onclick="hirdetesTorles()" href="#" class="btn btn-danger">Törlés</a>
         </div>
     </div>
@@ -93,13 +85,13 @@
 
 <p style="font-weight: bold;">Jóváhagyásra váró hirdetéseim:</p>
 <div class="row">
-<?php foreach ($kategoriak as $kategoria) {?>
+<?php for ($i=0; $i < count($jovahagyasravaroHirdetesekAdatai) ; $i++) {?>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%;">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoria['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
-            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $kategoria['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
-            <a href="#" class="btn btn-success">Elfogadás</a>
-            <a href="#" class="btn btn-secondary">Elutasítás</a>
+            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $jovahagyasravaroKategoriaKepek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
+            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
+            <a href="#" id="elfogadasgomb" onclick="hirdetesElfogadas(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-success">Elfogadás</a>
+            <a href="#" id="elutasitasgomb" href="#" onclick="hirdetesElutasitas(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-secondary">Elutasítás</a>
         </div>
     </div>
 <?php } ?>
@@ -108,5 +100,18 @@
 <script>
     function hirdetesTorles() {
         alert("Biztosan törölni szeretné ezt a hirdetést?"); 
+        //TODO
+    }
+</script>
+
+<script>
+    function hirdetesElfogadas() {
+        //TODO
+    }
+</script>
+
+<script>
+    function hirdetesElutasitas($id) {
+        //TODO
     }
 </script>
