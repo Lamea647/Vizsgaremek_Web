@@ -7,23 +7,23 @@ class Hirdetes_feladas extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('hirdetes_feladas_model');
         $this->load->model('telepules_model');
-        $this->load->model('regisztracio_model');
+        $this->load->model('kategoria_model');
+        $this->load->model('hirdetes_model');
         $this->load->library('session');
     }
 
     public function hirdetes_feladas(){
-        $kategoria_nev = $this->hirdetes_feladas_model->kategoria_lista();
+        $kategoria_nev = $this->kategoria_model->kategoria_lista();
         //print_r($kategoria_nev);
         $data['kategoria_nev'] = $kategoria_nev;
 
         //$kategoria_szam változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
-        $kategoria_szam = $this->hirdetes_feladas_model->kategoriakSzama();
+        $kategoria_szam = $this->kategoria_model->kategoriakSzama();
         $data['kategoria_szam'] = $kategoria_szam;
 
         //$telepules_szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
-        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
 
         $telepules = $this->telepules_model->get_all();
@@ -59,7 +59,7 @@ class Hirdetes_feladas extends CI_Controller {
             'hirdetes_cim' => $this->input->post('hirdetes_cim'),
             'hirdeto_id' => $_SESSION['user']['user_id']
         ];
-        $id = $this->hirdetes_feladas_model->insert($data);
+        $id = $this->hirdetes_model->hirdetes_rogzitese($data);
         $this->session->set_flashdata('success', "Sikeresen feladta hirdetését!");
         redirect('kezdolap');//kezdőlapra történő átirányítás
 	}
