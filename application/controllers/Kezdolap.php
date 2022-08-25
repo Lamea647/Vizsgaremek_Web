@@ -8,7 +8,8 @@ class Kezdolap extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->library('session');
-        $this->load->model('regisztracio_model');
+        $this->load->model('user_model');
+        $this->load->model('telepules_model');
     }
 
     public function index(){
@@ -18,12 +19,12 @@ class Kezdolap extends CI_Controller {
     }
 
     public function regisztracio(){
-        $telepules = $this->regisztracio_model->telepules_lista();
+        $telepules = $this->telepules_model->get_all();
         //print_r($telepules);
         $data['telepules'] = $telepules;
 
         //$szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
-        $telepules_szam = $this->regisztracio_model->telepulesekSzama();
+        $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
         
         $this->load->view('header', ['oldal' => 'regisztracio']);
@@ -33,7 +34,7 @@ class Kezdolap extends CI_Controller {
 
     public function regisztracio_post(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required');
+		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required|regex_match[^((Mr\.|Dr\.|dr\.|Ms\.|Mrs\.)\s)?([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+([-][A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1})(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1}]');
 		$this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required|is_unique[user.felhnev]|min_length[6]|max_length[100]');
 		$this->form_validation->set_rules('szuldatum', 'Születési dátum', 'trim|required');
 		$this->form_validation->set_rules('telszam', 'Telefonszám', 'trim|required|min_length[7]|max_length[30]');
@@ -50,8 +51,8 @@ class Kezdolap extends CI_Controller {
 			$this->form_validation->set_rules('profilkep', 'Profilkép feltöltése', 'required');
 		}
 
-        $this->form_validation->set_rules('jelszo', 'Jelszó', 'trim|required|min_length[6]|max_length[100]|regex_match[(?=.*\d)(?=.*[A-Za-z]).{6,100}]');
-        $this->form_validation->set_rules('jelszoujra', 'Jelszó megerősítése', 'trim|required|matches[jelszo]|min_length[6]|max_length[100]||regex_match[(?=.*\d)(?=.*[A-Za-z]).{6,100}]');
+        $this->form_validation->set_rules('jelszo', 'Jelszó', 'trim|required|min_length[6]|max_length[100]');
+        $this->form_validation->set_rules('jelszoujra', 'Jelszó megerősítése', 'trim|required|matches[jelszo]|min_length[6]|max_length[100]');
 
 		if ($this->form_validation->run() == FALSE) {
 			$this->session->set_flashdata('error', validation_errors());
@@ -131,7 +132,7 @@ class Kezdolap extends CI_Controller {
             'profilkep' => $fajlnev2,
             'jelszo' => password_hash($this->input->post('jelszo'), PASSWORD_DEFAULT),
         ];
-        $id = $this->regisztracio_model->insert($data);
+        $id = $this->user_model->user_rogzitese($data);
         $this->session->set_flashdata('success', "Sikeres regisztráció!");
         redirect('kezdolap');
 	}
@@ -155,7 +156,7 @@ class Kezdolap extends CI_Controller {
         }
         $felhnev = $this->input->post('felhnev');
 
-        $felhasznalo = $this->regisztracio_model->kereses_felhnev_alapjan($felhnev);
+        $felhasznalo = $this->user_model->kereses_felhnev_alapjan($felhnev);
 
         //BEJELENTKEZÉS GÁTOLÁSA - PRÓBA
         if ($felhasznalo['hitelesites'] == "false") {
