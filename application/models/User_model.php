@@ -37,7 +37,7 @@ class User_model extends CI_Model {
     public function user_modositasa($id, $data)
     {
         $this->db->where('user_id', $id);
-        return $this->db->update('user', $data);
+        $this->db->update('user', $data);
     }
 
     public function user_torlese($id)
