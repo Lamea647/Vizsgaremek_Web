@@ -16,7 +16,10 @@ class Profil extends CI_Controller {
     }
 
     public function profil_megtekintes(){
-        $telepules = $this->telepules_model->get_by_id($_SESSION['user']['telepules_id']);
+        $userAdatai = $this->user_model->user_lekerdezese_id_alapjan($_SESSION['user']['user_id']);
+        $data['userAdatai'] = $userAdatai;
+
+        $telepules = $this->telepules_model->get_by_id($userAdatai[0]['telepules_id']);
         $data['telepules'] = $telepules;
 
         //Díjaim részhez (teljesített hirdetések képei)
@@ -40,6 +43,14 @@ class Profil extends CI_Controller {
         $sajatHirdetesAdatok = $this->hirdetes_model->sajatHirdetesekAdatai($_SESSION['user']['user_id']);
         $data['sajatHirdetesAdatok'] = $sajatHirdetesAdatok;
 
+        //ÚJ!!!!!!!! lekérdezések alapján Saját hirdetéseim részhez:
+
+        $kategoriaKepekSajatHirdetesek = $this->hirdetes_model->kategoriaKepekSajatHirdetesek($_SESSION['user']['user_id']);
+        $data['kategoriaKepekSajatHirdetesek'] = $kategoriaKepekSajatHirdetesek;
+
+        $hirdetesIdkSajatHirdetesek = $this->hirdetes_model->hirdetesIdkSajatHirdetesek($_SESSION['user']['user_id']);
+        $data['hirdetesIdkSajatHirdetesek'] = $hirdetesIdkSajatHirdetesek;
+
         //Jóváhagyásra váró hirdetések részhez:
 
         $jovahagyasravaroKategoriaKepek = $this->hirdetes_model->kategoriaKepekJovahagyasravaroHirdetesek($_SESSION['user']['user_id']);
@@ -48,7 +59,6 @@ class Profil extends CI_Controller {
         $jovahagyasravaroHirdetesekAdatai = $this->hirdetes_model->jovahagyasravaroHirdetesekAdatai($_SESSION['user']['user_id']);
         $data['jovahagyasravaroHirdetesekAdatai'] = $jovahagyasravaroHirdetesekAdatai;
 
-        
         $this->load->view('header', ['oldal' => 'profil']);
         $this->load->view('profil', $data);
         $this->load->view('footer');
@@ -61,13 +71,17 @@ class Profil extends CI_Controller {
         $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
 
+        $userAdatai = $this->user_model->user_lekerdezese_id_alapjan($_SESSION['user']['user_id']);
+        $data['userAdatai'] = $userAdatai;
+
         $this->load->view('header');
         $this->load->view('modositott_profil', $data);
         $this->load->view('footer');
     }
 
     //személyes adatok módosítása - 1. form
-    public function profil_modositas_post($id){
+    public function profil_modositas_post($user_id){
+        /*
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('telepules_id', 'Település', 'required');
         $this->form_validation->set_rules('cim', 'Cím', 'trim|required');
@@ -81,21 +95,30 @@ class Profil extends CI_Controller {
 		}
 
         //$id = $this->session->userdata('user')['user_id'];
+        */
 
-        //$id = $this->input->post('user_id');
-		$data = [
-            'telepules_id' => $this->input->post('telepules_id'),
-            'cim' => $this->input->post('cim'),
-            'email' => $this->input->post('email'),
-            'telszam' => $this->input->post('telszam'),
-        ];
+        $telepules_id = $this->input->post('telepules_id');
+        $cim= $this->input->post('cim');
+        $email = $this->input->post('email');
+        $telszam= $this->input->post('telszam');
+        //$user_id = $this->input->post('user_id');
 
-
+		$data['telepules_id'] = $telepules_id;
+        $data['cim'] = $cim;
+        $data['telszam'] = $telszam;
+        $data['email'] = $email;
+            
         $this->load->model('user_model');
-        $this->user_model->user_modositasa($id, $data);
+        $this->user_model->user_modositasa($user_id, $data);
         $this->session->set_flashdata('success', "Sikeresen módosította profilját!");
         redirect('profil/profil_megtekintes');
 	}
+
+    public function profil_torles(){
+        $user_id = $_SESSION['user']['user_id'];
+        $this->user_model->user_torlese($user_id);
+        redirect('kezdolap/kijelentkezes');
+    }
 
 
 }
