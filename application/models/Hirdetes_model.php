@@ -200,6 +200,22 @@ class Hirdetes_model extends CI_Model {
     }
 
 
+    //ÚJ - Saját hirdetésekhez - hirdetes_id-k
+    public function hirdetesIdkSajatHirdetesek($user_id){
+        $sql = "SELECT hirdetes_id FROM `hirdetes` WHERE hirdetes_id NOT IN (SELECT hirdetes.hirdetes_id from hirdetes INNER JOIN jelentkezes WHERE jelentkezes.hirdetes_id = hirdetes.hirdetes_id AND hirdetes.hirdeto_id = $user_id) AND hirdeto_id = $user_id";
+        return $result = $this->db->query($sql)->result_array();
+    }
+
+    //ÚJ - Saját hirdetésekhez - kategoria_kepek
+    public function kategoriaKepekSajatHirdetesek($user_id){
+        $sql = "SELECT kategoria_kep from kategoria JOIN hirdetes ON kategoria.kategoria_id = hirdetes.kategoria_id AND hirdetes_id IN(SELECT hirdetes_id FROM `hirdetes` WHERE hirdetes_id NOT IN (SELECT hirdetes.hirdetes_id from hirdetes INNER JOIN jelentkezes WHERE jelentkezes.hirdetes_id = hirdetes.hirdetes_id AND hirdetes.hirdeto_id = $user_id) AND hirdeto_id = $user_id)";
+        return $result = $this->db->query($sql)->result_array();
+    }
+
+
+
+
+
 
 
 
