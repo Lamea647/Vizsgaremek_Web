@@ -16,7 +16,9 @@
     <button class="btn btn-warning">
     <a href="<?php echo base_url(); ?>profil/profil_modositas">Profil módosítása</a>
     </button>
-    <button class="btn btn-danger">Profil törlése</button>
+    <button class="btn btn-danger">
+    <a href="<?php echo base_url(); ?>profiltorles" id="profiltorlesgomb" onclick="profilTorlese()">Profil törlése</a>
+    </button>
     </div>
 </div>
 <div class="row">
@@ -25,11 +27,11 @@
         <table style="width:100%">
             <tr>
                 <td>Telefonszám:</td>
-                <td><?php echo $_SESSION['user']['telszam']; ?></td>
+                <td><?php echo $userAdatai[0]['telszam']; ?></td>
             </tr>
             <tr>
                 <td>E-mail cím:</td>
-                <td><?php echo $_SESSION['user']['email']; ?></td>
+                <td><?php echo $userAdatai[0]['email']; ?></td>
             </tr>
             <tr>
                 <td>Település:</td>
@@ -37,14 +39,14 @@
             </tr>
             <tr>
                 <td>Cím:</td>
-                <td><?php echo $_SESSION['user']['cim']; ?></td>
+                <td><?php echo $userAdatai[0]['cim']; ?></td>
             </tr>
         </table><br>
         <p style="font-weight: bold;">Statisztika:</p>
         <table style="width:25%">
             <tr>
                 <td>Pontszám:</td>
-                <td><?php echo $_SESSION['user']['pontszam']; ?></td>
+                <td><?php echo $userAdatai[0]['pontszam']; ?></td>
             </tr>
         </table>
     </div>
@@ -72,11 +74,11 @@
 
 <p style="font-weight: bold;">Saját hirdetéseim:</p>
 <div class="row">
-<?php for ($i=0; $i < count($sajatHirdetesAdatok) ; $i++) {?>
+<?php for ($i=0; $i < count($kategoriaKepekSajatHirdetesek) ; $i++) {?>
     <div class="col-sm-12 col-md-4 col-lg-3" style="margin-bottom: 10px;">
         <div class="card" style="width:100%;">
-            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $sajatHirdetesKategoriaKepek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
-            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $sajatHirdetesAdatok[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
+            <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoriaKepekSajatHirdetesek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
+            <a href="<?php echo base_url(); ?>hirdetes/<?php echo $hirdetesIdkSajatHirdetesek[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
             <a id="torlesgomb" onclick="hirdetesTorles()" href="#" class="btn btn-danger">Törlés</a>
         </div>
     </div>
@@ -115,3 +117,11 @@
         //TODO
     }
 </script>
+
+<script>
+    function profilTorlese() {
+        alert("Biztosan törölni szeretné a profilját?"); 
+        //TODO
+    }
+</script>
+
