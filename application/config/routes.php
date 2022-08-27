@@ -52,14 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'kezdolap';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-//$route['fooldal/regisztracio'] = 'regisztracio'; //teszteléshez
-//$route['fooldal/proba'] = 'kezdolap/regisztracio'; //teszteléshez
-//$route['feladas'] = 'hirdetes_feladas/hirdetes_feladas'; //teszteléshez - hirdetés feladási felület megtekintése
-//$route['kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //teszteléshez - hirdetés keresőfelület megtekintése
-$route['megtekintes'] = 'hirdetes_kereses/hirdetes_megtekintes'; //teszteléshez - hirdetés adatlap megtekintése
-//$route['profil'] = 'profil/profil_megtekintes'; //teszteléshez - profil oldal megtekintése
-//$route['statisztika'] = 'statisztika/ranglista_megtekintes'; //teszteléshez - ranglista oldal megtekintése
-$route['modprofil'] = 'profil/profil_modositas'; //teszteléshez - módosított profil oldal megtekintése
 $route['regisztracio']['POST'] = 'kezdolap/regisztracio_post';
 $route['bejelentkezes']['POST'] = 'kezdolap/bejelentkezes_post';
 $route['kijelentkezes'] = "kezdolap/kijelentkezes";
@@ -68,9 +60,11 @@ $route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
 $route['proba'] = 'kezdolap/proba';
 $route['hirdetes_feladas']['POST'] = 'hirdetes_feladas/hirdetes_post'; //hirdetés feladáshoz
 $route['hirdetes_feladas']['GET'] = 'hirdetes_feladas/hirdetes_feladas';
-$route['adatok_mod/(:num)']['PUT'] = 'profil/adatok_mod/$1'; //profil módosításhoz - jóváhagyás nélküli 1. form
-//$route['api/(:num)']['POST'] = 'api/user/index_put/$1';
+$route['modositas/(:num)']['POST'] = 'profil/profil_modositas_post/$1'; //profil módosításhoz - 1. form
 $route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
 $route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkezés után a hirdetes_kereses oldalra irányítás
+$route['kereses']['POST'] = 'hirdetes_kereses/hirdetes_kereses';
+$route['profiltorles'] = 'profil/profil_torles'; //törlés próba
 $route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
+
 
