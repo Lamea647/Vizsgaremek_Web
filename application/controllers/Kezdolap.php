@@ -34,7 +34,7 @@ class Kezdolap extends CI_Controller {
 
     public function regisztracio_post(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required|regex_match[^((Mr\.|Dr\.|dr\.|Ms\.|Mrs\.)\s)?([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+([-][A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1})(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1}]');
+		$this->form_validation->set_rules('nev', 'Teljes név', 'trim|required');
 		$this->form_validation->set_rules('felhnev', 'Felhasználónév', 'trim|required|is_unique[user.felhnev]|min_length[6]|max_length[100]');
 		$this->form_validation->set_rules('szuldatum', 'Születési dátum', 'trim|required');
 		$this->form_validation->set_rules('telszam', 'Telefonszám', 'trim|required|min_length[7]|max_length[30]');
