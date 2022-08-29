@@ -17,7 +17,7 @@
     <a href="<?php echo base_url(); ?>profil/profil_modositas">Profil módosítása</a>
     </button>
     <button class="btn btn-danger">
-    <a href="<?php echo base_url(); ?>profiltorles" id="profiltorlesgomb" onclick="profilTorlese()">Profil törlése</a>
+    <a id="profiltorlesgomb" onclick="profilTorlese()">Profil törlése</a>
     </button>
     </div>
 </div>
@@ -79,7 +79,7 @@
         <div class="card" style="width:100%;">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $kategoriaKepekSajatHirdetesek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
             <a href="<?php echo base_url(); ?>hirdetes/<?php echo $hirdetesIdkSajatHirdetesek[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
-            <a id="torlesgomb" onclick="hirdetesTorles()" href="#" class="btn btn-danger">Törlés</a>
+            <a id="hirdetestorlesgomb<?php echo $hirdetesIdkSajatHirdetesek[$i]['hirdetes_id'];?>" onclick="hirdetesTorlese(<?php echo $hirdetesIdkSajatHirdetesek[$i]['hirdetes_id']; ?>)" class="btn btn-danger">Törlés</a>
         </div>
     </div>
 <?php } ?>
@@ -100,9 +100,13 @@
 </div>
 
 <script>
-    function hirdetesTorles() {
-        alert("Biztosan törölni szeretné ezt a hirdetést?"); 
-        //TODO
+    function hirdetesTorlese(hirdetes_id) {
+        var result = confirm("Biztosan törölni szeretné ezt a hirdetést?");
+        if (result) {
+            var utvonal = "<?php echo base_url(); ?>hirdetestorles/"+ hirdetes_id;
+            var torlesid = "#hirdetestorlesgomb" + hirdetes_id;
+            document.querySelector(torlesid).setAttribute("href", utvonal);
+        }
     }
 </script>
 
@@ -120,8 +124,11 @@
 
 <script>
     function profilTorlese() {
-        alert("Biztosan törölni szeretné a profilját?"); 
-        //TODO
+        var result = confirm("Biztosan törölni szeretné a profilját?");
+        if (result) {
+            var utvonal = "<?php echo base_url(); ?>profiltorles";
+            document.querySelector('#profiltorlesgomb').setAttribute("href", utvonal);
+        }
     }
 </script>
 
