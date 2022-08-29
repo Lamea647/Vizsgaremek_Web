@@ -120,6 +120,11 @@ class Profil extends CI_Controller {
         redirect('kezdolap/kijelentkezes');
     }
 
+    public function hirdetes_torles($hirdetes_id){
+        $this->hirdetes_model->sajatHirdetesTorlese($hirdetes_id);
+        redirect('profil/profil_megtekintes');
+    }
+
 
 }
 
