@@ -64,7 +64,8 @@ $route['modositas/(:num)']['POST'] = 'profil/profil_modositas_post/$1'; //profil
 $route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
 $route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkezés után a hirdetes_kereses oldalra irányítás
 $route['kereses']['POST'] = 'hirdetes_kereses/hirdetes_kereses';
-$route['profiltorles'] = 'profil/profil_torles'; //törlés próba
+$route['profiltorles'] = 'profil/profil_torles'; 
+$route['hirdetestorles/(:num)'] = 'profil/hirdetes_torles/$1'; 
 $route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
 
 
