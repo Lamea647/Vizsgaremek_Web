@@ -10,6 +10,7 @@ class Hirdetes_kereses extends CI_Controller {
         $this->load->model('kategoria_model'); 
         $this->load->model('telepules_model');
         $this->load->model('hirdetes_model');
+        $this->load->model('jelentkezes_model');
         $this->load->library('session');
     }
 
@@ -64,7 +65,15 @@ class Hirdetes_kereses extends CI_Controller {
         $this->load->view('header');
         $this->load->view('hirdetes', $data);
         $this->load->view('footer');
-    
+    }
+
+    public function hirdetesre_jelentkezes($hirdetes_id){
+        $data['hirdetes_id'] = $hirdetes_id;
+        $data['jelentkezo_id'] = $_SESSION['user']['user_id'];
+        $data['jovahagyas_onkentes'] = "true";
+        $this->jelentkezes_model->jelentkezes_rogzitese($data);
+        $this->session->set_flashdata('success', "Sikeresen jelentkezett a hirdetésre!");
+        redirect('profil/profil_megtekintes');
     }
 
 }
