@@ -66,6 +66,7 @@ $route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkez�
 $route['kereses']['POST'] = 'hirdetes_kereses/hirdetes_kereses';
 $route['profiltorles'] = 'profil/profil_torles'; 
 $route['hirdetestorles/(:num)'] = 'profil/hirdetes_torles/$1'; 
+$route['jelszomodositas/(:num)']['POST'] = 'profil/profil_modositas_jelszo_post/$1'; //profil módosításhoz - 2. form
 $route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
 
 
