@@ -2,7 +2,7 @@
       <form action="<?php echo base_url(); ?>regisztracio" method="post" enctype="multipart/form-data">
             <div class="form-group">
                   <label for="nev">Teljes név:</label>
-                  <input type="text" class="form-control" id="nev" name="nev" maxlength="100" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['nev']) ?>" <?php endif; ?>>
+                  <input type="text" class="form-control" id="nev" name="nev" maxlength="100" pattern="^((Mr\.|Dr\.|dr\.|Ms\.|Mrs\.)\s)?([A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+([-][A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1})(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+(\s[A-ZÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]+){0,1})" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['nev']) ?>" <?php endif; ?>>
             </div>
             <div class="form-group">
                   <label for="felhnev">Felhasználónév:</label>
@@ -48,12 +48,13 @@
             </div>
             <div class="form-group">
                   <label for="jelszo">Jelszó:</label>
-                  <input type="password" class="form-control" id="jelszo" name="jelszo" maxlength="100" pattern=".{6,100}" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszo']) ?>" <?php endif; ?>>
+                  <input type="password" class="form-control" id="jelszo" name="jelszo" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszo']) ?>" <?php endif; ?>>
             </div>
             <div class="form-group">
                   <label for="jelszoujra">Jelszó megerősítése:</label>
-                  <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" pattern=".{6,100}" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszoujra']) ?>" <?php endif; ?>>
+                  <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszoujra']) ?>" <?php endif; ?>>
             </div>
+            <span id="jelszo_hiba" style="color: red;"></span>
             <div class="form-group">
                   <div class="form-check">
                   <input class="form-check-input" type="checkbox" name="feltetelek" id="feltetelek">
@@ -70,6 +71,7 @@
         validalas_cim();
         validalas_telszam();
         validalas_felhnev();
+        validalas_jelszo();
     }
 </script>
 
@@ -102,6 +104,18 @@
             document.getElementById("felhnev_hiba").innerHTML = "A megadott felhasználónév nem lehet 6 karakternél rövidebb.";
         }else{
             document.getElementById("felhnev_hiba").innerHTML = "";
+        }
+    }
+</script>
+
+<script>
+    function validalas_jelszo(){
+        let jelszo = document.getElementById("jelszo").value;
+        let jelszoujra = document.getElementById("jelszoujra").value;
+        if(jelszo != jelszoujra){
+            document.getElementById("jelszo_hiba").innerHTML = "A megadott jelszavak nem egyeznek meg.";
+        }else{
+            document.getElementById("jelszo_hiba").innerHTML = "";
         }
     }
 </script>
