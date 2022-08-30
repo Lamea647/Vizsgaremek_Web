@@ -74,12 +74,25 @@ class Hirdetes_kereses extends CI_Controller {
 
     public function hirdetesre_jelentkezes($hirdetes_id){
 
-        $hirdetesek = $this->hirdetes_model->hirdetesAzonositoAlapjan($hirdetes_id);
+        $jelentkezesIdk = $this->jelentkezes_model->jelentkezesTablaHirdetesIdk();
+        $tomb['jelentkezesIdk'] = $jelentkezesIdk;
 
+        $vizsgalat = false;
+        for ($i=0; $i < count($jelentkezesIdk) ; $i++) { 
+            if($hirdetes_id === $jelentkezesIdk[$i]['hirdetes_id']){
+                $vizsgalat = true;
+            }
+        }
+
+        $hirdetesek = $this->hirdetes_model->hirdetesAzonositoAlapjan($hirdetes_id);
+        
         if ($hirdetesek[0]['hirdeto_id'] === $_SESSION['user']['user_id']) {
 			$this->session->set_flashdata('error', "Saját hirdetésre nem jelentkezhet!");
 			redirect('profil/profil_megtekintes');
-		}else{
+		}else if($vizsgalat){
+            $this->session->set_flashdata('error', "Erre a hirdetésre már jelentkeztek!");
+			redirect('profil/profil_megtekintes');
+        }else{
             $data['hirdetes_id'] = $hirdetes_id;
             $data['jelentkezo_id'] = $_SESSION['user']['user_id'];
             $data['jovahagyas_onkentes'] = "true";
