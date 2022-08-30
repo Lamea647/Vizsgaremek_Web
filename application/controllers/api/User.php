@@ -40,6 +40,7 @@ class User extends REST_Controller {
 
     public function index_post()
     {
+
         $adatok['nev'] = $this->post('nev');
         $adatok['felhnev'] = $this->post('felhnev');
         $adatok['jelszo'] = $this->post('jelszo');
@@ -53,6 +54,7 @@ class User extends REST_Controller {
         $adatok['telepules_id'] = $this->post('telepules_id');
         $id = $this->user_model->user_rogzitese($adatok);
         $this->response($adatok, REST_Controller::HTTP_CREATED);
+
     }
 
     public function index_put($id)
@@ -78,6 +80,27 @@ class User extends REST_Controller {
         }
         $this->response($data, $resposone_code);
     }
+
+    public function bejelentkezes_get($felhnev)
+    {
+        $adatok = [];
+        $adatok = $this->user_model->kereses_felhnev_alapjan($felhnev);
+        $resposone_code = REST_Controller::HTTP_OK;
+        if (count($adatok) == 0) {
+            $resposone_code = REST_Controller::HTTP_NOT_FOUND;
+            $data = ['A megadott felhasználóval nem található felhasználó: '.$felhnev];
+        } else {
+            
+            $data = [
+                'adatok' => [$adatok],
+            ];
+        }
+        $this->response($data, $resposone_code);
+    }
+
+
+
+
 
     public function index_delete($id)
     {
