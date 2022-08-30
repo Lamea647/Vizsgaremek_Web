@@ -47,6 +47,11 @@ class Hirdetes_kereses extends CI_Controller {
         $hirdetesek = $this->hirdetes_model->hirdetesAzonositoAlapjan($id);
         $data['hirdetesek'] = $hirdetesek;
 
+        if (empty($hirdetesek)) {
+			$this->session->set_flashdata('error', "Nem létező hirdetést próbál megtekinteni!");
+			redirect('profil/profil_megtekintes');
+		}
+
         $kategoria_nev = $this->kategoria_model->kategoria_lista();
         $data['kategoria_nev'] = $kategoria_nev;
 
@@ -68,12 +73,20 @@ class Hirdetes_kereses extends CI_Controller {
     }
 
     public function hirdetesre_jelentkezes($hirdetes_id){
-        $data['hirdetes_id'] = $hirdetes_id;
-        $data['jelentkezo_id'] = $_SESSION['user']['user_id'];
-        $data['jovahagyas_onkentes'] = "true";
-        $this->jelentkezes_model->jelentkezes_rogzitese($data);
-        $this->session->set_flashdata('success', "Sikeresen jelentkezett a hirdetésre!");
-        redirect('profil/profil_megtekintes');
+
+        $hirdetesek = $this->hirdetes_model->hirdetesAzonositoAlapjan($hirdetes_id);
+
+        if ($hirdetesek[0]['hirdeto_id'] === $_SESSION['user']['user_id']) {
+			$this->session->set_flashdata('error', "Saját hirdetésre nem jelentkezhet!");
+			redirect('profil/profil_megtekintes');
+		}else{
+            $data['hirdetes_id'] = $hirdetes_id;
+            $data['jelentkezo_id'] = $_SESSION['user']['user_id'];
+            $data['jovahagyas_onkentes'] = "true";
+            $this->jelentkezes_model->jelentkezes_rogzitese($data);
+            $this->session->set_flashdata('success', "Sikeresen jelentkezett a hirdetésre!");
+            redirect('profil/profil_megtekintes');
+        }
     }
 
 }
