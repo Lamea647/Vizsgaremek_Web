@@ -57,8 +57,17 @@
         <p style="text-align: justify;"><?php echo $hirdetesek[0]['leiras'];?></p>
     </div>
 </div>
-<button class="btn btn-warning">Jelentkezem</button>
+<button class="btn btn-warning"><a id="jelentkezesgomb" onclick="hirdetesreJelentkezes(<?php echo $hirdetesek[0]['hirdetes_id'];?>)">Jelentkezem</a></button>
 <br>
+
+<script>
+    function hirdetesreJelentkezes(hirdetes_id) {
+            var utvonal = "<?php echo base_url(); ?>hirdetesjelentkezes/"+ hirdetes_id;
+            document.querySelector('#jelentkezesgomb').setAttribute("href", utvonal);
+        }
+</script>
+
+
 
 
 
