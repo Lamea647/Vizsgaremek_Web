@@ -147,6 +147,18 @@ class Profil extends CI_Controller {
         redirect('profil/profil_megtekintes');
     }
 
+    public function hirdetes_elfogadasa($hirdetes_id){
+        $this->jelentkezes_model->jelentkezesJovahagyasa($hirdetes_id);
+        $this->session->set_flashdata('success', "Sikeresen elfogadta az önkéntes jelentkezését!");
+        redirect('profil/profil_megtekintes');
+    }
+
+    public function hirdetes_elutasitasa($hirdetes_id){
+        $this->jelentkezes_model->jelentkezesTorleseElutasitasMiatt($hirdetes_id);
+        $this->session->set_flashdata('success', "Sikeresen elutasította az önkéntes jelentkezését!");
+        redirect('profil/profil_megtekintes');
+    }
+
 
 }
 
