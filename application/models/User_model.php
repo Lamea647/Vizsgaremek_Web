@@ -90,7 +90,7 @@ class User_model extends CI_Model {
     }
 
     public function userJelszoModositasa($jelszo, $user_id){
-        $this->db->set('jelszo', '$jelszo');
+        $this->db->set('jelszo', $jelszo);
         $this->db->where('user_id', $user_id);
         $this->db->update('user');
     }
