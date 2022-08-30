@@ -30,6 +30,16 @@ class Jelentkezes_model extends CI_Model {
         $this->db->delete('jelentkezes');
     }
 
+    //ÚJ - Jelentkezés táblában lévő hirdetés idk lekérdezése
+    public function jelentkezesTablaHirdetesIdk(){
+        $this->db->select('hirdetes_id');
+        $query = $this->db->get('jelentkezes');
+        return $result = $query->result_array();
+    }
+
+
+
+
 
 }
 
