@@ -101,7 +101,7 @@
 
 <script>
     function hirdetesTorlese(hirdetes_id) {
-        var result = confirm("Biztosan törölni szeretné ezt a hirdetést?");
+        var result = confirm("Biztosan törölni kívánja ezt a hirdetést?");
         if (result) {
             var utvonal = "<?php echo base_url(); ?>hirdetestorles/"+ hirdetes_id;
             var torlesid = "#hirdetestorlesgomb" + hirdetes_id;
@@ -128,7 +128,7 @@
 
 <script>
     function profilTorlese() {
-        var result = confirm("Biztosan törölni szeretné a profilját?");
+        var result = confirm("Biztosan törölni kívánja felhasználói profilját?");
         if (result) {
             var utvonal = "<?php echo base_url(); ?>profiltorles";
             document.querySelector('#profiltorlesgomb').setAttribute("href", utvonal);
