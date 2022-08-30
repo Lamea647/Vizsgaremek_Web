@@ -92,8 +92,8 @@
         <div class="card" style="width:100%;">
             <img class="card-img-bottom" src="<?php echo base_url(); ?>images/<?php echo $jovahagyasravaroKategoriaKepek[$i]['kategoria_kep']; ?>"alt="kategoria_kepe" style="width:100%;">
             <a href="<?php echo base_url(); ?>hirdetes/<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']; ?>" class="btn btn-warning">Tovább a hirdetésre</a>
-            <a href="#" id="elfogadasgomb" onclick="hirdetesElfogadas(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-success">Elfogadás</a>
-            <a href="#" id="elutasitasgomb" href="#" onclick="hirdetesElutasitas(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-secondary">Elutasítás</a>
+            <a href="#" id="elfogadasgomb<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>" onclick="hirdetesElfogadasa(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-success">Elfogadás</a>
+            <a href="#" id="elutasitasgomb<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>" onclick="hirdetesElutasitasa(<?php echo $jovahagyasravaroHirdetesekAdatai[$i]['hirdetes_id']?>)" class="btn btn-secondary">Elutasítás</a>
         </div>
     </div>
 <?php } ?>
@@ -111,14 +111,18 @@
 </script>
 
 <script>
-    function hirdetesElfogadas() {
-        //TODO
+    function hirdetesElfogadasa(hirdetes_id) {
+        var utvonal = "<?php echo base_url(); ?>hirdeteselfogadas/"+ hirdetes_id;
+        var elfogadasid = "#elfogadasgomb" + hirdetes_id;
+        document.querySelector(elfogadasid).setAttribute("href", utvonal);
     }
 </script>
 
 <script>
-    function hirdetesElutasitas($id) {
-        //TODO
+    function hirdetesElutasitasa(hirdetes_id) {
+        var utvonal = "<?php echo base_url(); ?>hirdeteselutasitas/"+ hirdetes_id;
+        var elutasitasid = "#elutasitasgomb" + hirdetes_id;
+        document.querySelector(elutasitasid).setAttribute("href", utvonal);
     }
 </script>
 
