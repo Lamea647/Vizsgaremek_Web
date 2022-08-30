@@ -124,7 +124,7 @@ class Profil extends CI_Controller {
             $this->session->set_flashdata('error', "Hibásan adta meg jelenlegi jelszavát!");
             redirect('profil/profil_modositas');
         }else if($jelszo !== $jelszoujra){
-            $this->session->set_flashdata('error', "Nem egyezik meg a mezőkbe beírt új jelszó!");
+            $this->session->set_flashdata('error', "Nem egyeznek meg az újonnan megadott jelszavak!");
             redirect('profil/profil_modositas');
         }else{
             $jelszo = password_hash($this->input->post('jelszo'), PASSWORD_DEFAULT);
