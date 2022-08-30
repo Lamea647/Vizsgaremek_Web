@@ -38,4 +38,14 @@ class Kategoria extends REST_Controller {
         $this->response($data, $response_code);
     }
 
+    public function kategoriakSzama_get(){   
+        $adatok = [];
+        $response_code = REST_Controller::HTTP_OK;
+        $adatok = $this->kategoria_model->kategoriakSzama();
+        $data = [
+            'adatok' => $adatok,
+        ];
+        $this->response($data, $response_code);
+}
+
 }
