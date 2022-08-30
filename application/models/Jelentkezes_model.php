@@ -24,6 +24,12 @@ class Jelentkezes_model extends CI_Model {
         $this->db->update('jelentkezes');
     }
 
+    //ÚJ - Jelentkezés elutasításakor törlés
+    public function jelentkezesTorleseElutasitasMiatt($hirdetes_id){
+        $this->db->where('hirdetes_id', $hirdetes_id);
+        $this->db->delete('jelentkezes');
+    }
+
 
 }
 
