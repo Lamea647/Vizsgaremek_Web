@@ -114,6 +114,28 @@ class Profil extends CI_Controller {
         redirect('profil/profil_megtekintes');
 	}
 
+    //jelszó módosítása - 2. form
+    public function profil_modositas_jelszo_post($user_id){
+        $jelenlegiJelszo = $this->input->post('jelenlegi_jelszo');
+        $jelszo = $this->input->post('jelszo');
+        $jelszoujra = $this->input->post('ujjelszoujra');
+        
+        if (!password_verify($jelenlegiJelszo, $_SESSION['user']['jelszo'])) {
+            $this->session->set_flashdata('error', "Hibásan adta meg jelenlegi jelszavát!");
+            redirect('profil/profil_modositas');
+        }else if($jelszo !== $jelszoujra){
+            $this->session->set_flashdata('error', "Nem egyezik meg a mezőkbe beírt új jelszó!");
+            redirect('profil/profil_modositas');
+        }else{
+            $jelszo = password_hash($this->input->post('jelszo'), PASSWORD_DEFAULT);
+            $this->load->model('user_model');
+            $this->user_model->userJelszoModositasa($jelszo, $user_id);
+            $this->session->set_flashdata('success', "Sikeresen módosította jelszavát!");
+            redirect('profil/profil_megtekintes');
+        }
+	}
+
+
     public function profil_torles(){
         $user_id = $_SESSION['user']['user_id'];
         $this->user_model->user_torlese($user_id);
