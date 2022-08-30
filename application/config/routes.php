@@ -57,16 +57,18 @@ $route['bejelentkezes']['POST'] = 'kezdolap/bejelentkezes_post';
 $route['kijelentkezes'] = "kezdolap/kijelentkezes";
 $route['regisztracio']['GET'] = 'kezdolap/regisztracio';
 $route['bejelentkezes']['GET'] = 'kezdolap/bejelentkezes';
-$route['proba'] = 'kezdolap/proba';
-$route['hirdetes_feladas']['POST'] = 'hirdetes_feladas/hirdetes_post'; //hirdetés feladáshoz
+$route['hirdetes_feladas']['POST'] = 'hirdetes_feladas/hirdetes_post'; //hirdetés feladás
 $route['hirdetes_feladas']['GET'] = 'hirdetes_feladas/hirdetes_feladas';
-$route['modositas/(:num)']['POST'] = 'profil/profil_modositas_post/$1'; //profil módosításhoz - 1. form
+$route['modositas/(:num)']['POST'] = 'profil/profil_modositas_post/$1'; //profil módosítás - 1. form (személyes adatok)
 $route['hirdetes/(:num)'] = 'hirdetes_kereses/hirdetes_megtekintes/$1';
 $route['hirdetes_kereses'] = 'hirdetes_kereses/hirdetes_kereses'; //bejelentkezés után a hirdetes_kereses oldalra irányítás
 $route['kereses']['POST'] = 'hirdetes_kereses/hirdetes_kereses';
-$route['profiltorles'] = 'profil/profil_torles'; 
-$route['hirdetestorles/(:num)'] = 'profil/hirdetes_torles/$1'; 
-$route['jelszomodositas/(:num)']['POST'] = 'profil/profil_modositas_jelszo_post/$1'; //profil módosításhoz - 2. form
+$route['profiltorles'] = 'profil/profil_torles'; //profil törlése
+$route['hirdetestorles/(:num)'] = 'profil/hirdetes_torles/$1'; //hirdetés törlése
+$route['jelszomodositas/(:num)']['POST'] = 'profil/profil_modositas_jelszo_post/$1'; //profil módosítás - 2. form (jelszó)
+$route['hirdetesjelentkezes/(:num)'] = 'hirdetes_kereses/hirdetesre_jelentkezes/$1'; //hirdetésre való jelentkezés
+$route['hirdeteselfogadas/(:num)'] = 'profil/hirdetes_elfogadasa/$1'; //hirdetésre való jelentkezés elfogadása
+$route['hirdeteselutasitas/(:num)'] = 'profil/hirdetes_elutasitasa/$1'; //hirdetésre való jelentkezés elutasítása
 $route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
 
 
