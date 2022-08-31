@@ -22,8 +22,7 @@
             Cégünk profiljából adódóan felhasználóink között nagyon fontos szerepet játszik az egymás iránti bizalom, így kizárólag valós személyes 
             adatok megadásával történő regisztrációt követően láthatóak az önkéntes munkalehetőségek. Minden esetben szükséges a személyes adatok 
             megadása mellett profilképet és személyes okmányt is feltölteni, valamint okmányszámot megadni. Regisztrációt követően a feltöltött adatok
-            és képek hitelesítési folyamaton mennek keresztül. Az adatok jóváhagyását követően a regisztrált felhasználó belépési jogot szerez, melyet
-            egyes személyes adatok módosítása esetén bizonyos esetekben ideiglenesen visszavonunk az újabb ellenőrzési folyamat lefuttatásáig. 
+            és képek hitelesítési folyamaton mennek keresztül. Az adatok jóváhagyását követően a regisztrált felhasználó belépési jogot szerez.
             Regisztráció esetén kötelező elfogadni a Felhasználói feltételeket és az Adatvédelmi irányelveket, melyek a felhasználók érdekeit, 
             személyes adatainak védelmét szolgálják.
             </p>
