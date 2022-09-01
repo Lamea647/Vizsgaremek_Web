@@ -39,17 +39,19 @@ class Hirdetes extends REST_Controller {
     }
 
 
-    //Post metódus még fejlesztés alatt
-    /*public function index_post()
+    public function index_post()
     {
+        $adatok['kategoria_id'] = $this->post('kategoria_id');
+        $adatok['hirdeto_id'] = $this->post('hirdeto_id');
         $adatok['kezdo_idopont'] = $this->post('kezdo_idopont');
         $adatok['zaro_idopont'] = $this->post('zaro_idopont');
-        $adatok['kategoria_id'] = $this->post('kategoria_id');
-        $adatok['telepules_id'] = $this->post('telepules_id');
-        $adatok['telszam2'] = $this->post('telszam2');
         $adatok['leiras'] = $this->post('leiras');
+        $adatok['hirdetes_telszam'] = $this->post('hirdetes_telszam');
+        $adatok['telepules_id'] = $this->post('telepules_id');
+        $adatok['hirdetes_cim'] = $this->post('hirdetes_cim');
+        $id = $this->hirdetes_model->hirdetes_rogzitese($adatok);
         $this->response($adatok, REST_Controller::HTTP_CREATED);
-    }*/
+    }
 
     public function index_delete($id)
     {
