@@ -73,9 +73,7 @@
         validalas_felhnev();
         validalas_jelszo();
     }
-</script>
 
-<script>
     function validalas_cim(){
         let hirdetes_cim = document.getElementById("cim").value;
         if(hirdetes_cim.length < 8){
@@ -84,9 +82,7 @@
             document.getElementById("cim_hiba").innerHTML = "";
         }
     }
-</script>
 
-<script>
     function validalas_telszam(){
         let hirdetes_telszam = document.getElementById("telszam").value;
         if(hirdetes_telszam.length < 7){
@@ -95,9 +91,7 @@
             document.getElementById("telszam_hiba").innerHTML = "";
         }
     }
-</script>
 
-<script>
     function validalas_felhnev(){
         let felhnev = document.getElementById("felhnev").value;
         if(felhnev.length < 6){
@@ -106,9 +100,7 @@
             document.getElementById("felhnev_hiba").innerHTML = "";
         }
     }
-</script>
 
-<script>
     function validalas_jelszo(){
         let jelszo = document.getElementById("jelszo").value;
         let jelszoujra = document.getElementById("jelszoujra").value;
