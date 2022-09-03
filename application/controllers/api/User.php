@@ -43,7 +43,7 @@ class User extends REST_Controller {
 
         $adatok['nev'] = $this->post('nev');
         $adatok['felhnev'] = $this->post('felhnev');
-        $adatok['jelszo'] = $this->post('jelszo');
+        $adatok['jelszo'] = password_hash($this->post('jelszo'), PASSWORD_DEFAULT);
         $adatok['cim'] = $this->post('cim');
         $adatok['szuldatum'] = $this->post('szuldatum');
         $adatok['telszam'] = $this->post('telszam');
@@ -55,6 +55,19 @@ class User extends REST_Controller {
         $id = $this->user_model->user_rogzitese($adatok);
         $this->response($adatok, REST_Controller::HTTP_CREATED);
 
+    }
+
+    public function bejelentkezes_post()
+    {
+
+        $felhnev = $this->post('felhnev');
+        $jelszo = $this->post('jelszo');
+        $exist = $this->user_model->user_bejelentkezes($felhnev , $jelszo);
+        if ($exist){
+            $this->response($exist,REST_Controller::HTTP_OK);
+        }else{
+            $this->response([],REST_Controller::HTTP_UNAUTHORIZED);
+        }
     }
 
     public function index_put($id)
