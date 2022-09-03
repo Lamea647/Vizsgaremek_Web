@@ -28,6 +28,21 @@ class User_model extends CI_Model {
         //return $this->db->insert_id();
     }
 
+    public function user_bejelentkezes($felhnev, $jelszo)
+    {
+        $felhasznalo = $this->user_model->kereses_felhnev_alapjan($felhnev);
+        if (empty($felhasznalo)){
+            return false;
+        }else{
+            if($felhasznalo['hitelesites'] == 'true' && password_verify($jelszo, $felhasznalo['jelszo'])){
+                return $felhasznalo['user_id'];
+            }
+            return false; 
+        }
+        
+        
+    }
+
     public function user_lekerdezese_id_alapjan($id)
     {
         $this->db->where('user_id', $id);
