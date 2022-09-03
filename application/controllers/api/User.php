@@ -62,9 +62,9 @@ class User extends REST_Controller {
 
         $felhnev = $this->post('felhnev');
         $jelszo = $this->post('jelszo');
-        $exist = $this->user_model->user_bejelentkezes($felhnev , $jelszo);
+        $exist = $this->user_model->user_bejelentkezes($felhnev, $jelszo);
         if ($exist){
-            $this->response($exist,REST_Controller::HTTP_OK);
+            $this->response((int)$exist,REST_Controller::HTTP_OK);
         }else{
             $this->response([],REST_Controller::HTTP_UNAUTHORIZED);
         }

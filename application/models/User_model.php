@@ -43,6 +43,7 @@ class User_model extends CI_Model {
         
     }
 
+
     public function user_lekerdezese_id_alapjan($id)
     {
         $this->db->where('user_id', $id);
