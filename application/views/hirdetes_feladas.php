@@ -18,8 +18,9 @@
         </div>
         <div class="form-group">
             <label for="leiras">Leírás:</label>
-            <textarea class="form-control" id="leiras" name="leiras" rows="5" cols="10" required></textarea>
+            <textarea class="form-control" id="leiras" name="leiras" rows="5" cols="10" required onchange="validalas_leiras();"></textarea>
         </div> 
+        <span id="leiras_hiba" style="color: red;"></span><br>
         <div class="form-group">
             <label for="telepules_id">Település:</label>
             <select class="form-control" id="telepules_id" name="telepules_id" required>
@@ -45,10 +46,9 @@
     function validalas(){
         validalas_cim();
         validalas_telszam();
+        validalas_leiras();
     }
-</script>
 
-<script>
     function validalas_cim(){
         let hirdetes_cim = document.getElementById("hirdetes_cim").value;
         if(hirdetes_cim.length < 8){
@@ -57,15 +57,22 @@
             document.getElementById("hirdetes_cim_hiba").innerHTML = "";
         }
     }
-</script>
 
-<script>
     function validalas_telszam(){
         let hirdetes_telszam = document.getElementById("hirdetes_telszam").value;
         if(hirdetes_telszam.length < 7){
             document.getElementById("hirdetes_telszam_hiba").innerHTML = "A megadott telefonszám nem lehet 7 karakternél rövidebb.";
         }else{
             document.getElementById("hirdetes_telszam_hiba").innerHTML = "";
+        }
+    }
+
+    function validalas_leiras(){
+        let leiras = document.getElementById("leiras").value;
+        if(leiras.length == 0){
+            document.getElementById("leiras_hiba").innerHTML = "A mező kitöltése kötelező.";
+        }else{
+            document.getElementById("leiras_hiba").innerHTML = "";
         }
     }
 </script>
