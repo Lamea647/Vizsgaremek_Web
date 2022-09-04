@@ -11,7 +11,7 @@
             <span id="felhnev_hiba" style="color: red;"></span>
             <div class="form-group">
                   <label for="szuldatum">Születési dátum:</label>
-                  <input type="date" class="form-control" id="szuldatum" name="szuldatum" max="2007-12-31" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['szuldatum']) ?>" <?php endif; ?>>
+                  <input type="date" class="form-control" id="szuldatum" name="szuldatum" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['szuldatum']) ?>" <?php endif; ?>>
             </div>
             <div class="form-group">
                   <label for="telszam">Telefonszám:</label>
