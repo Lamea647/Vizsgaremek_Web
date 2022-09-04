@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                   <label for="jelszoujra">Jelszó megerősítése:</label>
-                  <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszoujra']) ?>" <?php endif; ?>>
+                  <input type="password" class="form-control" id="jelszoujra" name="jelszoujra" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required onchange="validalas_jelszo();" <?php if ($this->session->flashdata('last_request') !== null) : ?> value="<?php echo ($this->session->flashdata('last_request')['jelszoujra']) ?>" <?php endif; ?>>
             </div>
             <span id="jelszo_hiba" style="color: red;"></span>
             <div class="form-group">
