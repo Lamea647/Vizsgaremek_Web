@@ -5,10 +5,10 @@
             <p style="text-align: center;"><?php echo $i+1 . "." ?></p>
             <div class="row">
                 <div class="col-sm-6">
-                    <img style="height: 200px; width: 300px; display: block; margin-left: auto; margin-right: auto;" class="img-fluid" src="<?php echo base_url(); ?>images/<?php echo $dijKepek[$i]?>" alt="dij">
+                    <img style="height: 200px; width: 300px; display: block; margin-left: auto; margin-right: auto;" class="img-fluid" src="<?php echo base_url(); ?>images/<?php echo $dijKepek[$i]?>">
                 </div>
                 <div class="col-sm-6">
-                    <img style="height: 200px; width: 300px; display: block; margin-left: auto; margin-right: auto;" class="img-fluid" src="<?php echo base_url(); ?>uploads/<?php echo $profilKepek[$i]['profilkep']?>" alt="helyezett">
+                    <img style="height: 200px; width: 300px; display: block; margin-left: auto; margin-right: auto;" class="img-fluid" src="<?php if(isset($profilKepek[$i]['profilkep'])) {echo base_url(); ?>uploads/<?php echo $profilKepek[$i]['profilkep'];} else {echo "";}?>">
                 </div>
             </div>
         <?php } ?>
@@ -28,6 +28,7 @@
         <?php } ?>
     </div>
 </div> 
+
 
 
 
