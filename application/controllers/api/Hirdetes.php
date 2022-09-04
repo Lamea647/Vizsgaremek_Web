@@ -15,7 +15,7 @@ class Hirdetes extends REST_Controller {
     {   
         $adatok = [];
         $error = false;
-        $message = "Hirdetés sikeresen lekérdezve.";
+        $message = "Összes hirdetés sikeresen lekérdezve.";
         $response_code = REST_Controller::HTTP_OK;
         if ($id == 0) {
             $adatok = $this->hirdetes_model->get_all();
