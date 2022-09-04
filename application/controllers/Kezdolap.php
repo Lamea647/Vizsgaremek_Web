@@ -20,10 +20,8 @@ class Kezdolap extends CI_Controller {
 
     public function regisztracio(){
         $telepules = $this->telepules_model->get_all();
-        //print_r($telepules);
         $data['telepules'] = $telepules;
 
-        //$szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
         $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
         
@@ -64,7 +62,7 @@ class Kezdolap extends CI_Controller {
         $kiterjesztes1 = pathinfo($okmanykep_nev, PATHINFO_EXTENSION);
         $idopont1 = date("Y_m_d_H_i_s");
         $felhnev1 = $this->input->post('felhnev');
-        $fajlnev1 = $felhnev1; //egyelőre felhasználónév
+        $fajlnev1 = $felhnev1; 
         $fajlnev1 = preg_replace('/[áàãâä]/ui', 'a', $fajlnev1);
         $fajlnev1 = preg_replace('/[éèêë]/ui', 'e', $fajlnev1);
         $fajlnev1 = preg_replace('/[íìîï]/ui', 'i', $fajlnev1);
@@ -93,7 +91,7 @@ class Kezdolap extends CI_Controller {
         $kiterjesztes2 = pathinfo($profilkep_nev, PATHINFO_EXTENSION);
         $idopont2 = date("Y_m_d_H_i_s");
         $felhnev2 = $this->input->post('felhnev');
-        $fajlnev2 = $felhnev2; //egyelőre felhasználónév
+        $fajlnev2 = $felhnev2; 
         $fajlnev2 = preg_replace('/[áàãâä]/ui', 'a', $fajlnev2);
         $fajlnev2 = preg_replace('/[éèêë]/ui', 'e', $fajlnev2);
         $fajlnev2 = preg_replace('/[íìîï]/ui', 'i', $fajlnev2);
@@ -111,7 +109,6 @@ class Kezdolap extends CI_Controller {
         $config2['file_name']            = $fajlnev2;
 
         $this->upload->initialize($config2);
-        //$this->load->library('upload', $config2);
         
 		if (!$this->upload->do_upload('profilkep')) {
 			$this->session->set_flashdata('error', $this->upload->display_errors());
@@ -158,13 +155,13 @@ class Kezdolap extends CI_Controller {
 
         $felhasznalo = $this->user_model->kereses_felhnev_alapjan($felhnev);
 
-        //BEJELENTKEZÉS GÁTOLÁSA - PRÓBA
+        
         if ($felhasznalo['hitelesites'] == "false") {
             $this->session->set_flashdata('error', "Sajnos még nem tud bejelentkezni, mert nem történt meg a regisztrációt követő hitelesítés!");
             $this->session->set_flashdata('last_request', $this->input->post());
             redirect('kezdolap/bejelentkezes');
         }
-        //
+        
 
         if (empty($felhasznalo)) {
             $this->session->set_flashdata('error', "Hibás felhasználónév vagy jelszó!");

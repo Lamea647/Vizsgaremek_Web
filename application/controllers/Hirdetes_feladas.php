@@ -15,14 +15,11 @@ class Hirdetes_feladas extends CI_Controller {
 
     public function hirdetes_feladas(){
         $kategoria_nev = $this->kategoria_model->kategoria_lista();
-        //print_r($kategoria_nev);
         $data['kategoria_nev'] = $kategoria_nev;
 
-        //$kategoria_szam változóba elmenteni a Hirdetes_feladas_model kategoriakSzama() metódus eredményét, és belerakni a $data tömbbe
         $kategoria_szam = $this->kategoria_model->kategoriakSzama();
         $data['kategoria_szam'] = $kategoria_szam;
 
-        //$telepules_szam változóba elmenteni a Regisztracio_model telepulesekSzama() metódus eredményét, és belerakni a $data tömbbe
         $telepules_szam = $this->telepules_model->telepulesekSzama();
         $data['telepules_szam'] = $telepules_szam;
 
@@ -34,7 +31,6 @@ class Hirdetes_feladas extends CI_Controller {
         $this->load->view('footer');
     }
 
-    //PRÓBA - hirdetés feladáshoz
     public function hirdetes_post(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('kezdo_idopont', 'Kezdő időpont', 'trim|required');
@@ -61,7 +57,7 @@ class Hirdetes_feladas extends CI_Controller {
         ];
         $id = $this->hirdetes_model->hirdetes_rogzitese($data);
         $this->session->set_flashdata('success', "Sikeresen feladta hirdetését!");
-        redirect('kezdolap');//kezdőlapra történő átirányítás
+        redirect('kezdolap');
 	}
 
 
