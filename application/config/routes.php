@@ -69,6 +69,5 @@ $route['jelszomodositas/(:num)']['POST'] = 'profil/profil_modositas_jelszo_post/
 $route['hirdetesjelentkezes/(:num)'] = 'hirdetes_kereses/hirdetesre_jelentkezes/$1'; //hirdetésre való jelentkezés
 $route['hirdeteselfogadas/(:num)'] = 'profil/hirdetes_elfogadasa/$1'; //hirdetésre való jelentkezés elfogadása
 $route['hirdeteselutasitas/(:num)'] = 'profil/hirdetes_elutasitasa/$1'; //hirdetésre való jelentkezés elutasítása
-$route['teszt'] = 'teszt/index'; //backend teszteléshez tesztútvonal
 
 
