@@ -108,25 +108,19 @@
             document.querySelector(torlesid).setAttribute("href", utvonal);
         }
     }
-</script>
 
-<script>
     function hirdetesElfogadasa(hirdetes_id) {
         var utvonal = "<?php echo base_url(); ?>hirdeteselfogadas/"+ hirdetes_id;
         var elfogadasid = "#elfogadasgomb" + hirdetes_id;
         document.querySelector(elfogadasid).setAttribute("href", utvonal);
     }
-</script>
 
-<script>
     function hirdetesElutasitasa(hirdetes_id) {
         var utvonal = "<?php echo base_url(); ?>hirdeteselutasitas/"+ hirdetes_id;
         var elutasitasid = "#elutasitasgomb" + hirdetes_id;
         document.querySelector(elutasitasid).setAttribute("href", utvonal);
     }
-</script>
 
-<script>
     function profilTorlese() {
         var result = confirm("Biztosan törölni kívánja felhasználói profilját?");
         if (result) {
