@@ -43,7 +43,7 @@ class Profil extends CI_Controller {
         $sajatHirdetesAdatok = $this->hirdetes_model->sajatHirdetesekAdatai($_SESSION['user']['user_id']);
         $data['sajatHirdetesAdatok'] = $sajatHirdetesAdatok;
 
-        //ÚJ!!!!!!!! lekérdezések alapján Saját hirdetéseim részhez:
+        //Lekérdezések alapján Saját hirdetéseim részhez:
 
         $kategoriaKepekSajatHirdetesek = $this->hirdetes_model->kategoriaKepekSajatHirdetesek($_SESSION['user']['user_id']);
         $data['kategoriaKepekSajatHirdetesek'] = $kategoriaKepekSajatHirdetesek;
@@ -81,27 +81,10 @@ class Profil extends CI_Controller {
 
     //személyes adatok módosítása - 1. form
     public function profil_modositas_post($user_id){
-        /*
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('telepules_id', 'Település', 'required');
-        $this->form_validation->set_rules('cim', 'Cím', 'trim|required');
-        $this->form_validation->set_rules('email', 'E-mail cím', 'trim|required|valid_email|is_unique');
-        $this->form_validation->set_rules('telszam', 'Telefonszám', 'trim|required');
-
-		if ($this->form_validation->run() == FALSE) {
-			$this->session->set_flashdata('error', validation_errors());
-			$this->session->set_flashdata('last_request', $this->input->post());
-			redirect('profil/profil_modositas');
-		}
-
-        //$id = $this->session->userdata('user')['user_id'];
-        */
-
         $telepules_id = $this->input->post('telepules_id');
         $cim= $this->input->post('cim');
         $email = $this->input->post('email');
         $telszam= $this->input->post('telszam');
-        //$user_id = $this->input->post('user_id');
 
 		$data['telepules_id'] = $telepules_id;
         $data['cim'] = $cim;
