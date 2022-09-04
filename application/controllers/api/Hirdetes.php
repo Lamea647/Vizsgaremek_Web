@@ -62,7 +62,7 @@ class Hirdetes extends REST_Controller {
             $resposone_code = REST_Controller::HTTP_NOT_FOUND;
             $data = ['message' => 'A megadott azonosítóval nem található hirdetés: '.$id, "success" => false];
         } else {
-            $this->user_model->hirdetes_torlese($id);
+            $this->hirdetes_model->hirdetes_torlese($id);
             $data = ['message' => 'Hirdetés sikeresen törölve: '.$id, "success" => true];
         }
         $this->response($data, $resposone_code);
