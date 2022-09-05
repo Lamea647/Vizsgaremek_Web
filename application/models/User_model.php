@@ -90,10 +90,10 @@ class User_model extends CI_Model {
     }
 
     public function userAdatokModositasa($telszam, $email, $telepules_id, $cim, $user_id){
-        $this->db->set('telszam', '$telszam');
-        $this->db->set('email', '$email');
-        $this->db->set('telepules_id', '$telepules_id');
-        $this->db->set('cim', '$cim');
+        $this->db->set('telszam', $telszam);
+        $this->db->set('email', $email);
+        $this->db->set('telepules_id', $telepules_id);
+        $this->db->set('cim', $cim);
         $this->db->where('user_id', $user_id);
         $this->db->update('user');
     }
