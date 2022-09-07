@@ -31,10 +31,6 @@ class Statisztika extends CI_Controller {
         $kategoria_szam = $this->kategoria_model->kategoriakSzama();
         $data['kategoria_szam'] = $kategoria_szam;
 
-
-        $adatok = $this->ranglista_model->kategoriankentiHirdetes();
-        $data['adatok'] = $adatok;
-
         $kategoriaAdatok = $this->ranglista_model->kategoriaAdatok();
         $data['kategoriaAdatok'] = $kategoriaAdatok;
 
