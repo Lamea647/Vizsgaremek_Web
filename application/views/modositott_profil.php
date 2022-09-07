@@ -37,11 +37,11 @@
       </div>
       <div class="form-group">
             <label for="jelszoujra">Új jelszó:</label>
-            <input type="password" class="form-control" id="ujjelszo" name="jelszo" maxlength="100" pattern=".{6,100}" required>
+            <input type="password" class="form-control" id="ujjelszo" name="jelszo" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required>
       </div>
       <div class="form-group">
             <label for="jelszoujra">Új jelszó újra:</label>
-            <input type="password" class="form-control" id="ujjelszoujra" name="ujjelszoujra" maxlength="100" pattern=".{6,100}" required>
+            <input type="password" class="form-control" id="ujjelszoujra" name="ujjelszoujra" maxlength="100" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,100}" required>
       </div>
       <button type="submit" class="btn btn-warning" value="true">Jelszó módosítása</button>
 </div><br>
