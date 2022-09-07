@@ -12,7 +12,6 @@ class Profil extends CI_Controller {
         $this->load->model('user_model');
         $this->load->model('hirdetes_model');
         $this->load->model('jelentkezes_model');
-
     }
 
     public function profil_megtekintes(){
@@ -22,7 +21,7 @@ class Profil extends CI_Controller {
         $telepules = $this->telepules_model->get_by_id($userAdatai[0]['telepules_id']);
         $data['telepules'] = $telepules;
 
-        //Díjaim részhez (teljesített hirdetések képei)
+        //Díjaim részhez (teljesített hirdetések képei):
 
         $kategoriaKepek = $this->user_model->kategoriaKepekListazasa($_SESSION['user']['user_id']);
         $data['kategoriaKepek'] = $kategoriaKepek;
@@ -36,14 +35,6 @@ class Profil extends CI_Controller {
         $data['hirdetesIdkJelentkezesek'] = $hirdetesIdkJelentkezesek;
 
         //Saját hirdetéseim részhez:
-
-        $sajatHirdetesKategoriaKepek = $this->hirdetes_model->kategoriaKepekListazasaSajatHirdetesek($_SESSION['user']['user_id']);
-        $data['sajatHirdetesKategoriaKepek'] = $sajatHirdetesKategoriaKepek;
-
-        $sajatHirdetesAdatok = $this->hirdetes_model->sajatHirdetesekAdatai($_SESSION['user']['user_id']);
-        $data['sajatHirdetesAdatok'] = $sajatHirdetesAdatok;
-
-        //Lekérdezések alapján Saját hirdetéseim részhez:
 
         $kategoriaKepekSajatHirdetesek = $this->hirdetes_model->kategoriaKepekSajatHirdetesek($_SESSION['user']['user_id']);
         $data['kategoriaKepekSajatHirdetesek'] = $kategoriaKepekSajatHirdetesek;
@@ -117,7 +108,6 @@ class Profil extends CI_Controller {
             redirect('profil/profil_megtekintes');
         }
 	}
-
 
     public function profil_torles(){
         $user_id = $_SESSION['user']['user_id'];
