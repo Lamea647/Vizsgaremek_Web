@@ -75,7 +75,7 @@ class Kezdolap extends CI_Controller {
         $fajlnev1 = $fajlnev1 . '_okmany_' . $idopont1 . '.' . $kiterjesztes1;
 
         $config1['upload_path']          = './uploads/';
-        $config1['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
+        $config1['allowed_types']        = 'jpg|png|jpeg|bmp';
         $config1['max_size']             = 10240;
         $config1['file_name']            = $fajlnev1;
 
@@ -104,7 +104,7 @@ class Kezdolap extends CI_Controller {
         $fajlnev2 = $fajlnev2 . '_profil_' . $idopont2 . '.' . $kiterjesztes2;
 
         $config2['upload_path']          = './uploads/';
-        $config2['allowed_types']        = 'gif|jpg|png|jpeg|bmp';
+        $config2['allowed_types']        = 'jpg|png|jpeg|bmp';
         $config2['max_size']             = 10240;
         $config2['file_name']            = $fajlnev2;
 
